@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yola Sofa</title>
+  <link rel="shortcut icon" type="image/jpg" href="frontend/images/favicon.ico"/>
+  <!-- Style -->
+  <link rel="stylesheet" href="frontend/vendor/bootstrap/css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="frontend/vendor/animate/animate.css"> -->
+  <!-- <link rel="stylesheet" href="frontend/vendor/aos/aos.css"> -->
+  <!-- <link rel="stylesheet" href="frontend/vendor/datatables/dataTables.bootstrap4.min.css" type="text/css"> -->
+  <link rel="stylesheet" href="frontend/vendor/fontawesome/css/all.min.css" type="text/css">
+  <!-- <link rel="stylesheet" href="frontend/vendor/gijgo/css/gijgo.min.css"> -->
+  <!-- <link rel="stylesheet" href="frontend/vendor/owlcarousel/owl.theme.default.min.css"> -->
+  <!-- <link rel="stylesheet" href="frontend/vendor/owlcarousel/owl.carousel.min.css"> -->
+  <!-- <link rel="stylesheet" href="frontend/vendor/simplelightbox/simple-lightbox.min.css"> -->
+  <!-- <link rel="stylesheet" href="frontend/vendor/xzoom/xzoom.css"> -->
+  <link rel="stylesheet" href="frontend/vendor/fotorama/fotorama.css">
+  <link rel="stylesheet" href="frontend/styles/main.css">
+  <!-- End of style -->
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
+    <a class="navbar-brand" href="index.html">
+      <img src="frontend/images/logo.png" class="d-inline-block align-middle" alt="" loading="lazy">
+      <span class="align-middle">Yola Sofa</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav ml-auto">
+        <form class="form-inline my-2 my-lg-0 mr-sm-3">
+          <input class="form-control form-control" type="search" placeholder="Cari..." aria-label="Search">
+          <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
+        </form>
+        <a class="nav-link" href="keranjang.html">
+          <i class="fas fa-shopping-cart fa-lg"></i>
+          <span class="d-sm-none nav-hiden-text">Keranjang Saya</span>
+        </a>
+        <span class="vertical-devider"></span>
+        <a class="btn btn-outline-primary mx-sm-3 btn-login" href="login.html">Masuk</i></a>
+        <a class="btn btn-primary" href="register.html">Daftar</i></a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Content -->
+  <main>
+    <div class="container content">
+      <div class="row">
+        <div class="col-12">
+          <h3 class="text-secondary mb-3">
+            <i class="fas fa-check fa-sm"></i> Periksa Pembelian Kamu
+          </h3>
+        </div>
+        <div class="col-sm-8 cart-lists">
+          <div class="card rounded-lg shadow mb-3">
+            <div class="card-body p-4">
+              <h5 class="card-title font-italic">Alamat Pengiriman</h5>
+              <form>
+                <div class="form-row">
+                  <div class="col-sm-6">
+                    <label for="colFormLabelSm" class="col-form-label col-form-label-sm">Nama Penerima</label>
+                    <input type="text" class="form-control" placeholder="Tuliskan Nama Penerima">
+                  </div>
+                  <div class="col-sm-6">
+                    <label for="colFormLabelSm" class="col-form-label col-form-label-sm">Nomor Telepon</label>
+                    <input type="text" class="form-control" placeholder="Masukan Nomor Telepon">
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="col-sm-6">
+                    <label for="colFormLabelSm" class="col-form-label col-form-label-sm">Kabupaten / Kota</label>
+                    <select class="custom-select" id="inputGroupSelect01">
+                      <option selected disabled>Pilih Kabupaten / Kota</option>
+                      <option value="Manado">Manado</option>
+                      <option value="Minahasa Utara">Minahasa Utara</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-6">
+                    <label for="colFormLabelSm" class="col-form-label col-form-label-sm">Kecamatan</label>
+                    <input type="text" class="form-control" placeholder="Tuliskan Nama Kecamatan">
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="col">
+                    <label for="colFormLabelSm" class="col-form-label col-form-label-sm">Alamat</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Isi dengan nama jalan, nomor rumah, nomor kompleks, nama gedung, lantai atau link google maps"></textarea>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="card-body border-top p-4">
+              <div class="row">
+                <div class="col-sm-7 products-checkout">
+                  <div class="products">
+                    <img src="frontend/images/sofa1.jpg" class="rounded float-left mr-4">
+                    <div class="container">
+                      <h1><a href="detail.html">Sofa Mantap 1</a></h1>
+                      <h3 class="text-secondary">2 Barang</h3>
+                      <h2>Rp 10.000.000</h2>
+                    </div>
+                    <hr>
+                  </div>
+                  <div class="products">
+                    <img src="frontend/images/sofa2.jpg" class="rounded float-left mr-4">
+                    <div class="container">
+                      <h1><a href="detail.html">Sofa Mantap 2</a></h1>
+                      <h3 class="text-secondary">1 Barang</h3>
+                      <h2>Rp 12.000.000</h2>
+                    </div>
+                    <hr>
+                  </div>
+                  <div class="products">
+                    <img src="frontend/images/sofa3.jpg" class="rounded float-left mr-4">
+                    <div class="container">
+                      <h1><a href="detail.html">Sofa Mantap 3</a></h1>
+                      <h3 class="text-secondary">1 Barang</h3>
+                      <h2>Rp 8.000.000</h2>
+                    </div>
+                    <hr>
+                  </div>
+                </div>
+                <div class="col-sm-5 pembayaran">
+                  <h5 class="card-title font-italic">Pilih Metode Pembayaran</h5>
+                  <form action="">
+                    <select class="custom-select" id="inputGroupSelect01">
+                      <option value="Transfer">Transfer</option>
+                      <option value="COD">COD</option>
+                    </select>
+                    <p class="instruksi font-weight-bold mt-2 mb-0">Instruksi Pembayaran</p>
+                    <p class="instruksi font-italic text-secondary">
+                      Silahkan melakukan pembayaran sesuai nominal "Total Tagihan" sebelum melanjutkan transaksi
+                    </p>
+                    <div class="row no-gutters">
+                      <img src="frontend/images/BRI.png" class="rounded-circle float-left d-inline-block align-middle mt-2 mr-2">
+                      <div class="d-inline-block align-middle">
+                        <p class="font-weight-bold mb-0">UD Yola Sofa</p>
+                        <p class="mb-0">2024 0374 9384 8304</p>
+                        <p class="text-blue font-weight-bold">Bank BRI</p>
+                      </div>
+                    </div>
+                    <p class="instruksi font-weight-bold mt-2 mb-0">Sertakan Bukti Transfer</p>
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="customFile">
+                      <label class="custom-file-label" for="customFile">Pilih Gambar</label>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-4 col-right">
+          <div class="card rounded-lg shadow position-sticky mb-3">
+            <div class="card-body">
+              <h5 class="card-title mb-3">Ringkasan Belanja</h5>
+              <hr>
+              <div class="row justify-content-between px-3">
+                <p>Total Harga (4 Produk)</p>
+                <p class="font-weight-bold">Rp 40.000.000</p>
+              </div>
+              <div class="row justify-content-between px-3">
+                <p>Biaya Pengiriman</p>
+                <p class="font-weight-bold">Rp 100.000</p>
+              </div>
+              <hr>
+              <div class="row justify-content-between px-3">
+                <p class="font-weight-bold">Total Harga</p>
+                <p class="price-checkout">Rp 40.000.000</p>
+              </div>
+              <a href="sukses.html" class="btn btn-primary btn-block font-weight-bold">
+                <i class="fas fa-money-check fa-sm"></i>
+                Sudah Melakukan Pembayaran
+              </a>
+              <!-- <button class="btn btn-primary btn-block font-weight-bold">
+                Beli (4)
+              </button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Chat -->
+  <a href="https://wa.me/6282296107796" class="chat" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Footer -->
+  <footer class="sticky-footer bg-white pb-3 border-top">
+    <div class="container-fluid">
+      <div class="row border-top justify-content-center align-items-center pt-3">
+        <div class="col-auto text-secondary copyright">
+          <small>Copyright © 2021 UD Yola Sofa</small>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Script -->
+  <script src="frontend/vendor/jquery/jquery-3.6.0.js"></script>
+  <script src="frontend/vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="frontend/vendor/datatables/jquery.dataTables.min.js"></script>
+  <script src="frontend/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+  <script src="frontend/vendor/aos/aos.js"></script>
+  <!-- <script src="frontend/vendor/gijgo/js/gijgo.min.js"></script> -->
+  <script src="frontend/vendor/owlcarousel/owl.carousel.min.js"></script>
+  <!-- <script src="frontend/vendor/retina/retina.min.js"></script> -->
+  <script src="frontend/vendor/simplelightbox/simple-lightbox.min.js"></script>
+  <script src="frontend/vendor/tilt-js/tilt.jquery.min.js"></script>
+  <!-- <script src="frontend/vendor/xzoom/xzoom.min.js"></script> -->
+  <!-- <script src="frontend/vendor/ztext/ztext.min.js"></script> -->
+  <script src="frontend/vendor/fotorama/fotorama.js"></script>
+  <script src="frontend/scripts/main.js"></script>
+  <!-- End of script -->
+</body>
+</html>

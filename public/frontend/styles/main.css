@@ -1,0 +1,766 @@
+@import url("https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Viga&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Courgette&display=swap");
+body {
+  background: #edf7fa;
+  font-family: "Assistant", sans-serif;
+}
+
+.vertical-devider {
+  border-right: 2px solid #7e7e7e;
+  margin: 0px 20px;
+}
+
+.text-blue {
+  color: #1859b9;
+}
+
+.bg-tertunda {
+  background-color: #ffc107;
+}
+
+.bg-dibuat {
+  background-color: #6c757d;
+}
+
+.bg-dikirim {
+  background-color: #17a2b8;
+}
+
+.bg-sukses {
+  background-color: #28a745;
+}
+
+nav .navbar-brand {
+  font-family: "Courgette", cursive;
+  font-weight: 700;
+  font-size: 26px;
+}
+nav .navbar-brand img {
+  width: 50px;
+  height: 50px;
+}
+nav .navbar-nav input {
+  width: 500px !important;
+}
+
+.jumbotron {
+  background-image: url("../images/header.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  text-align: center;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  padding-top: 100px;
+  position: relative;
+  box-shadow: 0px 100px 100px #c9e5ee;
+}
+.jumbotron:hover::after {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+  height: 100%;
+}
+.jumbotron::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 50%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: height 0.2s, background-image 0.2s;
+}
+.jumbotron .container {
+  position: relative;
+  z-index: 1;
+}
+.jumbotron .container .display-4 {
+  font-family: "Rubik", sans-serif;
+}
+
+.product .favorite {
+  margin-top: 100px;
+}
+.product .row .card {
+  height: 350px;
+  margin-bottom: 20px;
+  box-shadow: 0 5px 10px #2e2e2e;
+  overflow: hidden;
+}
+.product .row .card:hover {
+  box-shadow: 0 10px 20px #2e2e2e;
+  background-color: #ececec;
+}
+.product .row .card:hover img {
+  transform: scale(1.3);
+}
+.product .row .card img {
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transform-origin: 50% 100%;
+  transition: transform 0.15s;
+}
+.product .row .card .product-name {
+  color: #727272;
+  margin-bottom: 0;
+}
+.product .row .card .normal-price {
+  height: 25px;
+}
+.product .row .card .normal-price strike {
+  color: #eb6d3c;
+}
+.product .row .card .normal-price strike span {
+  color: #c5c5c5;
+}
+.product .row .card .price {
+  font-size: 24px;
+  color: #377ce4;
+  font-weight: 600;
+  margin-top: -10px;
+}
+.product .row .card .variant {
+  margin-top: -10px;
+}
+.product .row .card .variant i {
+  margin-right: 2px;
+  font-size: 30px;
+}
+.product .row .card .variant .warna1 {
+  color: #aa784b;
+}
+.product .row .card .variant .warna2 {
+  color: #365857;
+}
+.product .row .card .variant .warna3 {
+  color: #dbcb9a;
+}
+.product .row .card .variant .warna4 {
+  color: #ead268;
+}
+.product .row .card .variant .warna5 {
+  color: #b45252;
+}
+.product .see-other {
+  margin-top: 30px;
+}
+
+.about {
+  margin-top: 50px;
+  padding: 50px 0;
+  background-color: #ffffff;
+}
+.about .font-weight-bold {
+  color: #000000;
+}
+.about p {
+  color: #494949;
+}
+
+main {
+  margin-top: 30px;
+  min-height: 75vh;
+}
+main .content h3 {
+  font-size: 20px;
+  font-weight: 600;
+}
+main .content .row .col-right .position-sticky {
+  top: 20px;
+}
+main .content .row .col-right .position-sticky .normal-price {
+  height: 25px;
+}
+main .content .row .col-right .position-sticky .normal-price strike {
+  color: #eb6d3c;
+}
+main .content .row .col-right .position-sticky .normal-price strike span {
+  color: #c5c5c5;
+}
+main .content .row .col-right .position-sticky .price {
+  font-size: 24px;
+  color: #377ce4;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+main .content .row .col-right .position-sticky .price-checkout {
+  font-size: 20px;
+  color: #f08344;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+main .content .row .col-right .position-sticky .quantity {
+  width: 120px;
+}
+main .content .row .col-right .position-sticky .quantity input {
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  border-bottom: 1px solid #818181;
+}
+main .content .row .col-right .position-sticky .value {
+  font-weight: 600;
+  font-size: 20px;
+}
+main .content .row .detail .card h1 {
+  font-size: 26px;
+  font-weight: 600;
+}
+main .content .row .detail .card h2 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+main .content .row .detail .card .justify-content-between {
+  margin-top: -10px;
+}
+main .content .row .cart-lists .card .card-body {
+  padding: 10px;
+}
+main .content .row .cart-lists .card .card-body img {
+  width: 120px;
+  height: 120px;
+}
+main .content .row .cart-lists .card .card-body h1 {
+  font-size: 22px;
+  font-weight: 400;
+}
+main .content .row .cart-lists .card .card-body h1 a {
+  text-decoration: none;
+  color: #2e2e2e;
+}
+main .content .row .cart-lists .card .card-body h1 a:hover {
+  color: #7e7e7e;
+}
+main .content .row .cart-lists .card .card-body .normal-price {
+  margin-top: -5px;
+  height: 20px;
+}
+main .content .row .cart-lists .card .card-body .normal-price strike {
+  color: #eb6d3c;
+}
+main .content .row .cart-lists .card .card-body .normal-price strike span {
+  font-size: 18px;
+  color: #c5c5c5;
+}
+main .content .row .cart-lists .card .card-body h2 {
+  margin-top: 5px;
+  font-size: 22px;
+  font-weight: 700;
+}
+main .content .row .cart-lists .card .card-body nav {
+  height: 33px;
+}
+main .content .row .cart-lists .card .card-body nav a {
+  margin-top: -7px;
+}
+main .content .row .cart-lists .card .card-body nav .vertical-devider {
+  margin-top: -5px;
+}
+main .content .row .cart-lists .card .card-body nav .quantity {
+  width: 120px;
+  margin-top: 1px;
+}
+main .content .row .cart-lists .card .card-body nav .quantity button {
+  height: 30px;
+  width: 30px;
+}
+main .content .row .cart-lists .card .card-body nav .quantity button i {
+  font-size: 10px;
+}
+main .content .row .cart-lists .card .card-body nav .quantity input {
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  border-bottom: 1px solid #818181;
+}
+main .content .row .cart-lists .card .card-body .products-checkout img {
+  width: 80px;
+  height: 80px;
+}
+main .content .row .cart-lists .card .card-body .products-checkout h1 {
+  font-size: 22px;
+}
+main .content .row .cart-lists .card .card-body .products-checkout h3 {
+  font-size: 14px;
+}
+main .content .row .cart-lists .card .card-body .products-checkout h2 {
+  font-size: 16px;
+}
+main .content .row .cart-lists .card .card-body .pembayaran .card-title {
+  font-size: 16px;
+  font-weight: 700;
+}
+main .content .row .cart-lists .card .card-body .pembayaran .instruksi {
+  font-size: 14px;
+}
+main .content .row .cart-lists .card .card-body .pembayaran img {
+  height: 50px;
+  width: 50px;
+  border: 2px solid #1859b9;
+}
+main .content .row .transaction small {
+  font-size: 14px;
+  color: #727272;
+}
+main .content .row .transaction p {
+  font-size: 18px;
+  margin-bottom: 3px;
+}
+main .content .row .transaction p span {
+  color: #ffffff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-left: 20px;
+}
+main .content .row .transaction a {
+  margin-top: 30px;
+  color: #ffffff;
+  background-color: #c2c2c2;
+}
+main .content .row .transaction img {
+  height: 60px;
+  width: 60px;
+  margin-right: 5px;
+}
+main .content .row .transaction h1 {
+  font-size: 26px;
+  font-weight: 600;
+  margin-top: 10px;
+  color: #f08344;
+}
+main .content .row .transaction-detail .card-title {
+  font-size: 20px;
+  margin-top: 15px;
+}
+main .content .row .transaction-detail small {
+  font-size: 16px;
+  color: #727272;
+}
+main .content .row .transaction-detail span {
+  color: #ffffff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: inline-block;
+  margin-top: 5px;
+}
+main .content .row .transaction-detail p {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+main .content .row .transaction-detail a {
+  color: #8d8d8d;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+main .content .row .transaction-detail .products img {
+  width: 60px;
+  height: 60px;
+}
+main .content .row .transaction-detail .products h1 {
+  font-size: 20px;
+  margin-bottom: 2px;
+}
+main .content .row .transaction-detail .products h1 a {
+  text-decoration: none;
+  color: #2e2e2e;
+}
+main .content .row .transaction-detail .products h1 a:hover {
+  color: #7e7e7e;
+}
+main .content .row .transaction-detail .products h3 {
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+main .content .row .transaction-detail .products h2 {
+  font-size: 16px;
+  font-weight: 600;
+}
+main .content .row .transaction-detail .subtotal p {
+  font-size: 16px;
+}
+main .content .row .transaction-detail .subtotal h4 {
+  font-size: 22px;
+  font-weight: 400;
+}
+main .content .row .transaction-detail .subtotal .sub-bold p {
+  font-weight: 600;
+}
+main .content .row .transaction-detail .subtotal .sub-bold h4 {
+  font-weight: 600;
+  color: #f08344;
+}
+main .success img {
+  height: 250px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+main .success h1 {
+  font-size: 32px;
+  font-weight: 700;
+}
+main .success p {
+  font-size: 16px;
+  font-style: italic;
+  color: #727272;
+}
+
+.chat {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 40px;
+  right: 40px;
+  background-color: #25d366;
+  color: #ffffff;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 2px 2px 3px #999;
+  z-index: 100;
+}
+.chat:hover {
+  background-color: #42db7a;
+  color: #ffffff;
+}
+.chat i {
+  margin-top: 16px;
+}
+
+@media (max-width: 992px) {
+  nav .navbar-brand {
+    font-size: 20px;
+  }
+  nav .navbar-brand img {
+    width: 30px;
+    height: 30px;
+  }
+  nav .navbar-nav form {
+    justify-content: center;
+  }
+  nav .navbar-nav form input {
+    width: 300px !important;
+  }
+  nav .navbar-nav .nav-hiden-text {
+    font-size: 16px;
+    margin-left: 10px;
+    color: #000000 !important;
+  }
+  nav .navbar-nav .vertical-devider {
+    display: none;
+  }
+  nav .navbar-nav .btn-login {
+    margin: 10px 0;
+  }
+
+  .jumbotron {
+    height: 320px;
+    padding-top: 80px;
+  }
+  .jumbotron .container .display-4 {
+    font-size: 30px;
+  }
+  .jumbotron .container .lead {
+    font-size: 16px;
+  }
+  .jumbotron .container a {
+    padding: 3px 10px;
+    font-size: 20px;
+  }
+
+  .product .favorite {
+    margin-top: 80px;
+  }
+  .product .row .card {
+    height: 220px;
+  }
+  .product .row .card img {
+    height: 120px;
+  }
+  .product .row .card .card-body {
+    padding: 8px;
+  }
+  .product .row .card .card-body .product-name {
+    font-size: 16px;
+  }
+  .product .row .card .card-body .normal-price {
+    height: 25px;
+    font-size: 12px;
+  }
+  .product .row .card .card-body .price {
+    font-size: 16px;
+  }
+  .product .row .card .card-body .variant {
+    margin-top: -10px;
+  }
+  .product .row .card .card-body .variant i {
+    margin-right: 2px;
+    font-size: 20px;
+  }
+  .product .see-other {
+    margin-top: 30px;
+  }
+
+  .about {
+    margin-top: 50px;
+    padding: 20px 0;
+  }
+  .about p {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  main {
+    min-height: 82vh;
+  }
+  main .content h3 {
+    font-size: 16px;
+    font-weight: 500;
+  }
+  main .content .row .detail .card h1 {
+    font-size: 20px;
+  }
+  main .content .row .detail .card .card-subtitle {
+    font-size: 12px;
+  }
+  main .content .row .detail .card h2 {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  main .content .row .detail .card .specification .spec-title {
+    font-size: 16px;
+  }
+  main .content .row .detail .card .specification p {
+    font-size: 14px;
+  }
+  main .content .row .cart-lists .card .card-body img {
+    width: 80px;
+    height: 80px;
+  }
+  main .content .row .cart-lists .card .card-body h1 {
+    font-size: 18px;
+    margin-top: 5px;
+  }
+  main .content .row .cart-lists .card .card-body .normal-price {
+    margin-top: -5px;
+    height: 20px;
+  }
+  main .content .row .cart-lists .card .card-body .normal-price strike span {
+    font-size: 14px;
+  }
+  main .content .row .cart-lists .card .card-body h2 {
+    font-size: 18px;
+  }
+  main .content .row .cart-lists .card .card-body nav {
+    height: 20px;
+  }
+  main .content .row .cart-lists .card .card-body nav a {
+    margin-top: -12px;
+  }
+  main .content .row .cart-lists .card .card-body nav .vertical-devider {
+    margin-bottom: 10px;
+  }
+  main .content .row .cart-lists .card .card-body nav .quantity {
+    width: 110px;
+    margin-top: -7px;
+  }
+  main .content .row .cart-lists .card .card-body nav .quantity button {
+    margin-bottom: -10px;
+  }
+  main .content .row .cart-lists .card .card-body nav .quantity button i {
+    font-size: 10px;
+  }
+  main .content .row .cart-lists .card .card-body h5 {
+    font-size: 18px;
+  }
+  main .content .row .cart-lists .card .card-body form label, main .content .row .cart-lists .card .card-body form .custom-file-label {
+    font-size: 12px;
+  }
+  main .content .row .cart-lists .card .card-body form input, main .content .row .cart-lists .card .card-body form textarea, main .content .row .cart-lists .card .card-body form select {
+    font-size: 14px;
+  }
+  main .content .row .cart-lists .card .card-body .products-checkout img {
+    width: 60px;
+    height: 60px;
+  }
+  main .content .row .cart-lists .card .card-body .products-checkout h1 {
+    font-size: 18px;
+    margin-bottom: 1px;
+  }
+  main .content .row .cart-lists .card .card-body .products-checkout h3 {
+    font-size: 12px;
+    margin-bottom: 1px;
+  }
+  main .content .row .cart-lists .card .card-body .products-checkout h2 {
+    font-size: 16px;
+  }
+  main .content .row .cart-lists .card .card-body .pembayaran .card-title {
+    font-size: 16px;
+    font-weight: 700;
+  }
+  main .content .row .cart-lists .card .card-body .pembayaran .instruksi {
+    font-size: 14px;
+  }
+  main .content .row .cart-lists .card .card-body .pembayaran .instruksi.font-italic {
+    font-size: 12px;
+  }
+  main .content .row .cart-lists .card .card-body .pembayaran img {
+    height: 50px;
+    width: 50px;
+    border: 2px solid #1859b9;
+  }
+  main .content .row .col-right .position-sticky .card-title {
+    font-size: 18px;
+  }
+  main .content .row .col-right .position-sticky p {
+    font-size: 14px;
+  }
+  main .content .row .col-right .position-sticky .normal-price {
+    height: 20px;
+  }
+  main .content .row .col-right .position-sticky .normal-price strike span {
+    font-size: 14px;
+  }
+  main .content .row .col-right .position-sticky .price {
+    font-size: 20px;
+  }
+  main .content .row .col-right .position-sticky .value {
+    font-size: 18px;
+  }
+  main .content .row .transaction .card .card-body {
+    padding: 10px;
+  }
+  main .content .row .transaction .card .card-body small {
+    font-size: 12px;
+  }
+  main .content .row .transaction .card .card-body p {
+    font-size: 16px;
+  }
+  main .content .row .transaction .card .card-body p span {
+    padding: 3px 10px;
+  }
+  main .content .row .transaction .card .card-body a {
+    margin-top: 10px;
+    padding: 5px 20px;
+  }
+  main .content .row .transaction .card .card-body img {
+    height: 30px;
+    width: 30px;
+  }
+  main .content .row .transaction .card .card-body h1 {
+    font-size: 18px;
+    margin-top: 2px;
+  }
+  main .content .row .transaction-detail .card .card-body {
+    padding: 10px;
+  }
+  main .content .row .transaction-detail .card .card-body .card-title {
+    font-size: 16px;
+    margin-top: 0px;
+  }
+  main .content .row .transaction-detail .card .card-body small {
+    font-size: 12px;
+  }
+  main .content .row .transaction-detail .card .card-body span {
+    padding: 3px 10px;
+    margin-top: 0px;
+  }
+  main .content .row .transaction-detail .card .card-body p {
+    font-size: 16px;
+    margin-bottom: 0px;
+  }
+  main .content .row .transaction-detail .card .card-body a {
+    font-size: 16px;
+    margin-bottom: 0px;
+  }
+  main .content .row .transaction-detail .card .card-body .products img {
+    width: 60px;
+    height: 60px;
+  }
+  main .content .row .transaction-detail .card .card-body .products h1 {
+    font-size: 20px;
+    margin-bottom: 0px;
+  }
+  main .content .row .transaction-detail .card .card-body .products h1 a {
+    text-decoration: none;
+    color: #2e2e2e;
+  }
+  main .content .row .transaction-detail .card .card-body .products h1 a:hover {
+    color: #7e7e7e;
+  }
+  main .content .row .transaction-detail .card .card-body .products h3 {
+    font-size: 12px;
+    margin-bottom: 0px;
+  }
+  main .content .row .transaction-detail .card .card-body .products h2 {
+    font-size: 16px;
+    font-weight: 600;
+  }
+  main .content .row .transaction-detail .card .card-body .subtotal p {
+    font-size: 14px;
+  }
+  main .content .row .transaction-detail .card .card-body .subtotal h4 {
+    font-size: 18px;
+    font-weight: 400;
+  }
+  main .content .row .transaction-detail .card .card-body .subtotal .sub-bold p {
+    font-weight: 600;
+  }
+  main .content .row .transaction-detail .card .card-body .subtotal .sub-bold h4 {
+    font-weight: 600;
+    color: #f08344;
+  }
+  main .success img {
+    height: 150px;
+    margin-bottom: 20px;
+    margin-top: 80px;
+  }
+  main .success h1 {
+    font-size: 22px;
+    font-weight: 700;
+  }
+  main .success p {
+    font-size: 14px;
+    font-style: italic;
+    color: #727272;
+  }
+
+  .chat {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #ffffff;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+  }
+  .chat:hover {
+    background-color: #42db7a;
+    color: #ffffff;
+  }
+  .chat i {
+    margin-top: 16px;
+  }
+
+  .chat {
+    width: 50px;
+    height: 50px;
+    bottom: 30vh;
+    right: 10px;
+  }
+  .chat i {
+    margin-top: 10px;
+  }
+}/*# sourceMappingURL=main.css.map */
