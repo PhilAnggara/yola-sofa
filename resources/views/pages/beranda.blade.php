@@ -7,7 +7,7 @@
   <div class="container">
     <h1 class="display-4">Sofa Berkualitas</h1>
     <p class="lead">"Kepuasan pelanggan adalah kepuasan kami"</p>
-    <a class="btn btn-primary btn-lg px-sm-4" href="products.html" role="button">Produk</a>
+    <a class="btn btn-primary btn-lg px-sm-4" href="{{ Route('beranda') }}" role="button">Produk</a>
   </div>
 </div>
 
@@ -17,7 +17,7 @@
     <div class="row favorite justify-content-center">
       <div class="col-sm-3 col-6">
         <div class="card shadow">
-          <img src="frontend/images/sofa1.jpg" class="card-img-top">
+          <img src="{{ url('frontend/images/sofa1.jpg') }}" class="card-img-top">
           <div class="card-body">
             <h5 class="card-title product-name">Sofa Mantap 1</h5>
             <div class="normal-price">
@@ -31,13 +31,13 @@
               <i class="fas fa-circle warna2"></i>
               <i class="fas fa-circle warna5"></i>
             </div>
-            <a href="detail.html" class="stretched-link"></a>
+            <a href="{{ Route('beranda') }}" class="stretched-link"></a>
           </div>
         </div>
       </div>
       <div class="col-sm-3 col-6">
         <div class="card shadow">
-          <img src="frontend/images/sofa2.jpg" class="card-img-top">
+          <img src="{{ url('frontend/images/sofa2.jpg') }}" class="card-img-top">
           <div class="card-body">
             <h5 class="card-title product-name">Sofa Mantap 2</h5>
             <div class="normal-price">
@@ -50,13 +50,13 @@
               <i class="fas fa-circle warna2"></i>
               <i class="fas fa-circle warna3"></i>
             </div>
-            <a href="detail.html" class="stretched-link"></a>
+            <a href="{{ Route('beranda') }}" class="stretched-link"></a>
           </div>
         </div>
       </div>
       <div class="col-sm-3 col-6">
         <div class="card shadow">
-          <img src="frontend/images/sofa3.jpg" class="card-img-top">
+          <img src="{{ url('frontend/images/sofa3.jpg') }}" class="card-img-top">
           <div class="card-body">
             <h5 class="card-title product-name">Sofa Mantap 3</h5>
             <div class="normal-price">
@@ -70,13 +70,13 @@
               <i class="fas fa-circle warna1"></i>
               <i class="fas fa-circle warna5"></i>
             </div>
-            <a href="detail.html" class="stretched-link"></a>
+            <a href="{{ Route('beranda') }}" class="stretched-link"></a>
           </div>
         </div>
       </div>
       <div class="col-sm-3 col-6">
         <div class="card shadow">
-          <img src="frontend/images/sofa4.jpg" class="card-img-top">
+          <img src="{{ url('frontend/images/sofa4.jpg') }}" class="card-img-top">
           <div class="card-body">
             <h5 class="card-title product-name">Sofa Mantap 4</h5>
             <div class="normal-price">
@@ -90,13 +90,13 @@
               <i class="fas fa-circle warna2"></i>
               <i class="fas fa-circle warna1"></i>
             </div>
-            <a href="detail.html" class="stretched-link"></a>
+            <a href="{{ Route('beranda') }}" class="stretched-link"></a>
           </div>
         </div>
       </div>
     </div>
     <div class="text-center">
-      <a href="products.html" class="btn btn-success see-other">Lihat Produk Lainnya</a>
+      <a href="{{ Route('beranda') }}" class="btn btn-success see-other">Lihat Produk Lainnya</a>
     </div>
   </div>
 </div>

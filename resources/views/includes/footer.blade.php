@@ -1,5 +1,5 @@
 <!-- Chat -->
-<a href="https://wa.me/6282296107796" class="chat" target="_blank">
+<a href="https://wa.me/6285155117682" class="chat" target="_blank">
   <i class="fab fa-whatsapp"></i>
 </a>
 
