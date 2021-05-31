@@ -17,8 +17,12 @@
         <span class="d-sm-none nav-hiden-text">Keranjang Saya</span>
       </a>
       <span class="vertical-devider"></span>
-      <a class="btn btn-outline-primary mx-sm-3 btn-login" href="login.html">Masuk</i></a>
-      <a class="btn btn-primary" href="register.html">Daftar</i></a>
+      
+      @guest
+        <a class="btn btn-outline-primary mx-sm-3 btn-login" href="{{ url('login') }}">Masuk</i></a>
+        <a class="btn btn-primary" href="{{ url('register') }}">Daftar</i></a>
+      @endguest
+
     </div>
   </div>
 </nav>
