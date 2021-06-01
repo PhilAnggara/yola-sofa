@@ -7,7 +7,7 @@
   <div class="container">
     <h1 class="display-4">Sofa Berkualitas</h1>
     <p class="lead">"Kepuasan pelanggan adalah kepuasan kami"</p>
-    <a class="btn btn-primary btn-lg px-sm-4" href="{{ Route('beranda') }}" role="button">Produk</a>
+    <a class="btn btn-primary btn-lg px-sm-4" href="{{ Route('products') }}" role="button">Produk</a>
   </div>
 </div>
 
@@ -31,7 +31,7 @@
               <i class="fas fa-circle warna2"></i>
               <i class="fas fa-circle warna5"></i>
             </div>
-            <a href="{{ Route('beranda') }}" class="stretched-link"></a>
+            <a href="{{ Route('detail') }}" class="stretched-link"></a>
           </div>
         </div>
       </div>
@@ -50,7 +50,7 @@
               <i class="fas fa-circle warna2"></i>
               <i class="fas fa-circle warna3"></i>
             </div>
-            <a href="{{ Route('beranda') }}" class="stretched-link"></a>
+            <a href="{{ Route('detail') }}" class="stretched-link"></a>
           </div>
         </div>
       </div>
@@ -70,7 +70,7 @@
               <i class="fas fa-circle warna1"></i>
               <i class="fas fa-circle warna5"></i>
             </div>
-            <a href="{{ Route('beranda') }}" class="stretched-link"></a>
+            <a href="{{ Route('detail') }}" class="stretched-link"></a>
           </div>
         </div>
       </div>
@@ -90,13 +90,13 @@
               <i class="fas fa-circle warna2"></i>
               <i class="fas fa-circle warna1"></i>
             </div>
-            <a href="{{ Route('beranda') }}" class="stretched-link"></a>
+            <a href="{{ Route('detail') }}" class="stretched-link"></a>
           </div>
         </div>
       </div>
     </div>
     <div class="text-center">
-      <a href="{{ Route('beranda') }}" class="btn btn-success see-other">Lihat Produk Lainnya</a>
+      <a href="{{ Route('products') }}" class="btn btn-success see-other">Lihat Produk Lainnya</a>
     </div>
   </div>
 </div>

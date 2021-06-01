@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
   <a class="navbar-brand" href="{{ Route('beranda') }}">
-    <img src="frontend/images/logo.png" class="d-inline-block align-middle" alt="" loading="lazy">
+    <img src="{{ url('frontend/images/logo.png') }}" class="d-inline-block align-middle" alt="" loading="lazy">
     <span class="align-middle">Yola Sofa</span>
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,10 +12,12 @@
         <input class="form-control form-control" type="search" placeholder="Cari..." aria-label="Search">
         <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
       </form>
-      <a class="nav-link" href="{{ Route('beranda') }}">
-        <i class="fas fa-shopping-cart fa-lg"></i>
-        <span class="d-sm-none nav-hiden-text">Keranjang Saya</span>
-      </a>
+      @if (auth()->user() && auth()->user()->roles == 'USER')
+        <a class="nav-link" href="{{ Route('cart') }}">
+          <i class="fas fa-shopping-cart fa-lg"></i>
+          <span class="d-sm-none nav-hiden-text">Keranjang Saya</span>
+        </a>
+      @endif
       <span class="vertical-devider"></span>
       
       @guest
@@ -43,9 +45,9 @@
                 Beranda Admin
               </a>
             @else
-              <a class="dropdown-item" href="{{ Route('beranda') }}">
-                <i class="far fa-credit-card fa-sm mr-1 text-secondary"></i>
-                Transaksi
+              <a class="dropdown-item {{ Request::is('transaksi/*') ? 'active' : '' }}" href="{{ Route('transaction') }}">
+                <i class="far fa-credit-card fa-sm mr-1 {{ Request::is('transaksi/*') ? 'text-white' : 'text-secondary' }}"></i>
+                Transaksi Saya
               </a>
             @endif
             <form action="{{ url('logout') }}" method="POST">

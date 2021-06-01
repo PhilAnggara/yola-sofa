@@ -15,6 +15,20 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'MainController@index')
   ->name('beranda');
+Route::get('produk', 'MainController@listOfProducts')
+  ->name('products');
+Route::get('produk/nama-produk', 'MainController@productDetail')
+  ->name('detail');
+Route::get('keranjang', 'MainController@cart')
+  ->name('cart');
+Route::get('checkout', 'MainController@checkout')
+  ->name('checkout');
+Route::get('sukses', 'MainController@success')
+  ->name('success');
+Route::get('transaksi', 'MainController@transaction')
+  ->name('transaction');
+Route::get('transaksi/nomor-transaksi', 'MainController@transactionDetail')
+  ->name('transaction-detail');
 
 
 Auth::routes();
