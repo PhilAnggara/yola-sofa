@@ -32,7 +32,7 @@ Route::get('transaksi/nomor-transaksi', 'MainController@transactionDetail')
 
 Route::prefix('admin')
 ->namespace('Admin')
-->middleware(['auth'])
+->middleware(['auth','only-admin'])
 ->group(function() {
   
   Route::get('/', 'AdminController@index')->name('admin');
