@@ -40,7 +40,7 @@
             </div>
             <div class="dropdown-divider"></div>
             @if (auth()->user()->roles == 'ADMIN')
-              <a class="dropdown-item" href="{{ Route('beranda') }}">
+              <a class="dropdown-item" href="{{ Route('admin') }}">
                 <i class="fas fa-user-cog fa-sm mr-1 text-secondary"></i>
                 Beranda Admin
               </a>

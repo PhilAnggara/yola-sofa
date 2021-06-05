@@ -30,5 +30,14 @@ Route::get('transaksi', 'MainController@transaction')
 Route::get('transaksi/nomor-transaksi', 'MainController@transactionDetail')
   ->name('transaction-detail');
 
+Route::prefix('admin')
+->namespace('Admin')
+->middleware(['auth'])
+->group(function() {
+  
+  Route::get('/', 'AdminController@index')->name('admin');
+
+});
+
 
 Auth::routes();
