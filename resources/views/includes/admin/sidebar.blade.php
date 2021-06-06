@@ -16,13 +16,13 @@
       <span>Beranda</span>
     </a>
   </li>
-  <li class="nav-item {{ Request::is('admin/data-objek-wisata*') ? 'active' : '' }}">
-    <a class="nav-link" href="{{ Route('admin') }}">
+  <li class="nav-item {{ Request::is('admin/produk*') ? 'active' : '' }}">
+    <a class="nav-link" href="{{ Route('produk.index') }}">
       <i class="fas fa-fw fa-couch"></i>
       <span>Produk</span>
     </a>
   </li>
-  <li class="nav-item {{ Request::is('admin/saran') ? 'active' : '' }}">
+  <li class="nav-item {{ Request::is('admin/transaksi*') ? 'active' : '' }}">
     <a class="nav-link" href="{{ Route('admin') }}">
       <i class="fas fa-fw fa-credit-card"></i>
       <span>Transaksi</span>
