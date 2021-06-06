@@ -19,7 +19,7 @@ class ProdukController extends Controller
      */
     public function index()
     {
-        $items = Produk::all();
+        $items = Produk::all()->sortByDesc('stok');
 
         return view('pages.admin.products', compact('items'));
     }
@@ -66,7 +66,10 @@ class ProdukController extends Controller
      */
     public function show($id)
     {
-        //
+        $id_produk = Produk::where('slug', $id)->first()->id;
+        $item = Produk::with(['gambar','warna'])->findOrFail($id_produk);
+
+        return view('pages.admin.products-detail', compact('item'));
     }
 
     /**
@@ -89,7 +92,13 @@ class ProdukController extends Controller
      */
     public function update(ProdukRequest $request, $id)
     {
-        //
+        $data = $request->all();
+        $data['slug'] = Str::slug($request->nama_produk);
+
+        $item = Produk::findOrFail($id);
+        $item->update($data);
+        
+        return redirect()->route('produk.index');
     }
 
     /**
@@ -100,6 +109,9 @@ class ProdukController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = Produk::findOrFail($id);
+        $item->delete();
+
+        return redirect()->back();
     }
 }

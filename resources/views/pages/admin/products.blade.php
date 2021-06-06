@@ -32,10 +32,10 @@
               <tr>
                 <th scope="col">Nama Produk</th>
                 <th scope="col">Harga</th>
-                <th scope="col" width="110px">Stok</th>
+                <th scope="col" width="60">Stok</th>
                 <th scope="col" width="110px">Dimensi</th>
                 <th scope="col" width="110px">Tampilkan di Beranda</th>
-                <th scope="col" width="150px">Aksi</th>
+                <th scope="col" width="110px">Aksi</th>
               </tr>
             </thead>
             <tbody>
@@ -45,17 +45,17 @@
                   <td>Rp {{ number_format($item->harga, 0, ',', '.') }}</td>
                   <td>{{ $item->stok }}</td>
                   <td>{{ $item->keseluruhan }}</td>
-                  <td><i class="{{ $item->beranda == 1 ? 'far fa-check-circle text-success' : '' }}"></td>
+                  <td>{{ $item->beranda == 1 ? 'Ya' : '' }}</td>
                   <td>
-                    <a href="{{ Route('produk.index') }}" class="btn btn-primary btn-sm">
+                    <a href="{{ Route('produk.show', $item->slug) }}" class="btn btn-primary btn-sm">
                       <i class="far fa-eye"></i>
                     </a>
-                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#editModal-">
+                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#editProdukModal-{{ $item->id }}">
                       <i class="far fa-edit"></i>
                     </button>
-                    <a href="{{ Route('admin') }}" class="btn btn-danger btn-sm">
+                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#hapusProdukModal-{{ $item->id }}">
                       <i class="fas fa-trash"></i>
-                    </a>
+                    </button>
                   </td>
                 </tr>
               @empty
