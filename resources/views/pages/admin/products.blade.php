@@ -25,7 +25,7 @@
     </div>
 
     <div class="col">
-      <div class="card border-left-prim shadow h-100 py-2">
+      <div class="card border-bottom-prim shadow h-100 py-2">
         <div class="card-body">
           <table id="dataTable" class="table table-bordered table-responsive-sm text-center text-nowrap">
             <thead class="thead-light">
