@@ -21,7 +21,7 @@
       <button type="button" class="d- d-sm-inline-block btn btn-sm btn-outline-primary shadow-sm" data-toggle="modal" data-target="#tambahGambarModal">
         <i class="fas fa-file-image fa-sm"></i> Tambah Gambar
       </button>
-      <button type="button" class="d- d-sm-inline-block btn btn-sm btn-outline-info shadow-sm" data-toggle="modal" data-target="#tambahGambarModal">
+      <button type="button" class="d- d-sm-inline-block btn btn-sm btn-outline-info shadow-sm" data-toggle="modal" data-target="#tambahWarnaModal">
         <i class="fas fa-tint fa-sm"></i> Tambah Warna
       </button>
     </div>
@@ -49,13 +49,15 @@
             @foreach ($item->gambar as $gbr)
               <div class="col-4 text-center mb-2">
                 <img src="{{ Storage::url($gbr->gambar) }}" class="rounded img-thumbnail">
-                <form action="{{ Route('admin') }}" method="POST">
-                  @method('delete')
-                  @csrf
-                  <button class="btn btn-link btn-sm">
-                    Hapus
-                  </button>
-                </form>
+                @if ($item->gambar->count() > 1)
+                  <form action="{{ Route('gambar.destroy', $gbr->id) }}" method="POST">
+                    @method('delete')
+                    @csrf
+                    <button class="btn btn-link btn-sm">
+                      Hapus
+                    </button>
+                  </form>
+                @endif
               </div>
             @endforeach
           </div>
@@ -69,13 +71,15 @@
                 </p>
               </div>
               <div class="ml-auto p-2">
-                <form action="{{ Route('admin') }}" method="POST">
-                  {{-- @method('delete') --}}
-                  @csrf
-                  <button class="btn btn-link btn-sm" style="color: {{ $warna->kode_warna }};">
-                    Hapus
-                  </button>
-                </form>
+                @if ($item->warna->count() > 1)
+                  <form action="{{ Route('warna.destroy', $warna->id) }}" method="POST">
+                    @method('delete')
+                    @csrf
+                    <button class="btn btn-link btn-sm" style="color: {{ $warna->kode_warna }};">
+                      Hapus
+                    </button>
+                  </form>
+                @endif
               </div>
             </div>
           @endforeach
@@ -126,6 +130,7 @@
   </div>
 
 </div>
+@include('includes.admin.product-detail-modal')
 @endsection
 
 @push('addon-style')

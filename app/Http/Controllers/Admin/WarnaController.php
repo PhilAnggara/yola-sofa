@@ -3,14 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\ProdukRequest;
-use App\Models\Produk;
-use App\Models\Gambar;
 use App\Models\Warna;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 
-class ProdukController extends Controller
+class WarnaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,9 +15,7 @@ class ProdukController extends Controller
      */
     public function index()
     {
-        $items = Produk::all()->sortByDesc('stok');
-
-        return view('pages.admin.products', compact('items'));
+        //
     }
 
     /**
@@ -40,22 +34,13 @@ class ProdukController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ProdukRequest $request)
+    public function store(Request $request)
     {
         $data = $request->all();
-        $data['slug'] = Str::slug($request->nama_produk);
-
-        $newProduk = Produk::create($data);
-
-        $data['id_produk'] = $newProduk->id;
-        $data['gambar'] = $request->file('gambar')->store(
-            'gambar-produk'.$data['id_produk'], 'public'
-        );
-        
-        Gambar::create($data);
         Warna::create($data);
 
-        return redirect()->route('produk.index');
+        
+        return redirect()->back();
     }
 
     /**
@@ -66,10 +51,7 @@ class ProdukController extends Controller
      */
     public function show($id)
     {
-        $id_produk = Produk::where('slug', $id)->first()->id;
-        $item = Produk::with(['gambar','warna'])->findOrFail($id_produk);
-
-        return view('pages.admin.product-detail', compact('item'));
+        //
     }
 
     /**
@@ -90,15 +72,9 @@ class ProdukController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ProdukRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $data = $request->all();
-        $data['slug'] = Str::slug($request->nama_produk);
-
-        $item = Produk::findOrFail($id);
-        $item->update($data);
-        
-        return redirect()->route('produk.index');
+        //
     }
 
     /**
@@ -109,7 +85,7 @@ class ProdukController extends Controller
      */
     public function destroy($id)
     {
-        $item = Produk::findOrFail($id);
+        $item = Warna::findOrFail($id);
         $item->delete();
 
         return redirect()->back();

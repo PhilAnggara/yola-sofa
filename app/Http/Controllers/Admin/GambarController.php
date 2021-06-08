@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\GambarRequest;
+use App\Models\Gambar;
 use Illuminate\Http\Request;
 
 class GambarController extends Controller
@@ -33,9 +35,15 @@ class GambarController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(GambarRequest $request)
     {
-        //
+        $data = $request->all();
+        $data['gambar'] = $request->file('gambar')->store(
+            'gambar-produk'.$data['id_produk'], 'public'
+        );
+
+        Gambar::create($data);
+        return redirect()->back();
     }
 
     /**
@@ -80,6 +88,9 @@ class GambarController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = Gambar::findOrFail($id);
+        $item->delete();
+
+        return redirect()->back();
     }
 }

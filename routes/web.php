@@ -38,6 +38,8 @@ Route::prefix('admin')
   Route::get('/', 'AdminController@index')->name('admin');
   
   Route::resource('produk', 'ProdukController');
+  Route::resource('gambar', 'GambarController');
+  Route::resource('warna', 'WarnaController');
 
 });
 

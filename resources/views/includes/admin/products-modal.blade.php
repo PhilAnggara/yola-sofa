@@ -106,7 +106,7 @@
               <div class="form-group row">
                 <label for="kode_warna" class="col-5 col-sm-3 col-form-lable col-form-label-sm"><span class="text-danger">*</span> Warna Produk</label>
                 <div class="col-7 col-sm-9">
-                  <input type="color" name="kode_warna" id="kode_warna" required>
+                  <input type="color" class="form-control" name="kode_warna" id="kode_warna" required>
                 </div>
               </div>
             </div>
