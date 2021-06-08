@@ -17,7 +17,7 @@ Route::get('/', 'MainController@index')
   ->name('beranda');
 Route::get('produk', 'MainController@listOfProducts')
   ->name('products');
-Route::get('produk/nama-produk', 'MainController@productDetail')
+Route::get('produk/{slug}', 'MainController@productDetail')
   ->name('detail');
 Route::get('keranjang', 'MainController@cart')
   ->name('cart');

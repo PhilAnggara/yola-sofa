@@ -3,22 +3,28 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Produk;
 
 class MainController extends Controller
 {
     public function index()
     {
-        return view('pages.beranda');
+        $items = Produk::where('beranda', 1)->limit(4)->get();
+        return view('pages.beranda', compact('items'));
     }
     
     public function listOfProducts()
     {
-        return view('pages.products');
+        $items = Produk::all()->sortByDesc('stok');
+        return view('pages.products', compact('items'));
     }
     
-    public function productDetail()
+    public function productDetail(Request $request, $slug)
     {
-        return view('pages.detail');
+        $item = Produk::where('slug', $slug)->firstOrFail();
+        return view('pages.detail', [
+            'item' => $item
+        ]);
     }
     
     public function cart()
