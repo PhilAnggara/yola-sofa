@@ -19,10 +19,16 @@
           <div class="card-body">
             <div class="normal-price">
               <strike>
-                <span>Rp {{ number_format($item->harga, 0, ',', '.') }}<span>
+                <span>
+                  @if ($item->harga_diskon != NULL)
+                    Rp {{ number_format($item->harga, 0, ',', '.') }}
+                  @endif
+                <span>
               </strike>
             </div>
-            <h5 class="card-title price">Rp {{ number_format($item->harga, 0, ',', '.') }}</h5>
+            <h5 class="card-title price">
+              Rp {{ number_format($item->harga_diskon == NULL ? $item->harga : $item->harga_diskon, 0, ',', '.') }}
+            </h5>
             <div class="d-flex">
               <div class="quantity mb-4">
                 <div class="input-group">

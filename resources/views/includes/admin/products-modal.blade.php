@@ -234,6 +234,20 @@
               <input type="text" class="form-control" id="rangka" name="rangka" value="{{ $item->rangka }}">
             </div>
           </div>
+
+          <hr>
+
+          <div class="form-row">
+            <div class="form-group col">
+              <label for="harga_diskon" class="col-form-label-sm mb-0">Harga Diskon (Tidak boleh lebih dari Rp {{ number_format($item->harga, 0, ',', '.') }})</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Rp</span>
+                </div>
+                <input type="number" class="form-control" id="harga_diskon" max="{{ $item->harga }}" name="harga_diskon" value="{{ $item->harga_diskon }}">
+              </div>
+            </div>
+          </div>
           
           <hr>
 

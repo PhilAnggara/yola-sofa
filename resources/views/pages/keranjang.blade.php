@@ -15,7 +15,7 @@
           <div class="card-body">
             <img src="{{ url('frontend/images/sofa1.jpg') }}" class="rounded float-left mr-sm-4 mr-2">
             <div class="container">
-              <h1 class="mt-sm-2"><a href="{{ Route('detail') }}">Sofa Mantap 1</a></h1>
+              <h1 class="mt-sm-2"><a href="{{ Route('beranda') }}">Sofa Mantap 1</a></h1>
               <div class="normal-price">
                 <strike>
                   <span>Rp 12.000.000<span>
@@ -50,7 +50,7 @@
           <div class="card-body">
             <img src="{{ url('frontend/images/sofa2.jpg') }}" class="rounded float-left mr-sm-4 mr-2">
             <div class="container">
-              <h1 class="mt-sm-2"><a href="{{ Route('detail') }}">Sofa Mantap 2</a></h1>
+              <h1 class="mt-sm-2"><a href="{{ Route('beranda') }}">Sofa Mantap 2</a></h1>
               <div class="normal-price">
                 <strike>
                   <span>Rp 15.000.000<span>
@@ -85,7 +85,7 @@
           <div class="card-body">
             <img src="{{ url('frontend/images/sofa3.jpg') }}" class="rounded float-left mr-sm-4 mr-2">
             <div class="container">
-              <h1 class="mt-sm-2"><a href="{{ Route('detail') }}">Sofa Mantap 3</a></h1>
+              <h1 class="mt-sm-2"><a href="{{ Route('beranda') }}">Sofa Mantap 3</a></h1>
               <div class="normal-price">
                 <strike>
                   <span>Rp 11.000.000<span>
@@ -120,7 +120,7 @@
           <div class="card-body">
             <img src="{{ url('frontend/images/sofa4.jpg') }}" class="rounded float-left mr-sm-4 mr-2">
             <div class="container">
-              <h1 class="mt-sm-2"><a href="{{ Route('detail') }}">Sofa Mantap 4</a></h1>
+              <h1 class="mt-sm-2"><a href="{{ Route('beranda') }}">Sofa Mantap 4</a></h1>
               <div class="normal-price">
                 <strike>
                   <span>Rp 12.000.000<span>

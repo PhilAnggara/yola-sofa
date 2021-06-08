@@ -15,10 +15,16 @@
                 <h5 class="card-title product-name">{{ $item->nama_produk }}</h5>
                 <div class="normal-price">
                   <strike>
-                    <span>Rp {{ number_format($item->harga, 0, ',', '.') }}</span>
+                    <span>
+                      @if ($item->harga_diskon != NULL)
+                        Rp {{ number_format($item->harga, 0, ',', '.') }}
+                      @endif
+                    <span>
                   </strike>
                 </div>
-                <p class="card-text price">Rp {{ number_format($item->harga, 0, ',', '.') }}</p>
+                <p class="card-text price">
+                  Rp {{ number_format($item->harga_diskon == NULL ? $item->harga : $item->harga_diskon, 0, ',', '.') }}
+                </p>
                 <div class="variant">
                   @foreach ($item->warna as $warna)
                     <i class="fas fa-circle" style="color: {{ $warna->kode_warna }};"></i>

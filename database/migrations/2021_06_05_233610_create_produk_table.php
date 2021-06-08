@@ -18,6 +18,7 @@ class CreateProdukTable extends Migration
             $table->string('nama_produk')->unique();
             $table->string('slug');
             $table->integer('harga');
+            $table->integer('harga_diskon')->nullable();
             $table->integer('stok');
             $table->string('material_kaki')->nullable();
             $table->string('material_dudukan')->nullable();

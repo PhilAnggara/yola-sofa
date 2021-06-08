@@ -32,6 +32,7 @@
               <tr>
                 <th scope="col">Nama Produk</th>
                 <th scope="col">Harga</th>
+                <th scope="col">Harga Diskon</th>
                 <th scope="col" width="60">Stok</th>
                 <th scope="col" width="110px">Dimensi</th>
                 <th scope="col" width="110px">Tampilkan di Beranda</th>
@@ -42,7 +43,20 @@
               @forelse ($items as $item)
                 <tr>
                   <td>{{ $item->nama_produk }}</td>
-                  <td>Rp {{ number_format($item->harga, 0, ',', '.') }}</td>
+                  <td>
+                    @if ($item->harga_diskon != NULL)
+                      <strike>Rp {{ number_format($item->harga, 0, ',', '.') }}</strike>
+                    @else
+                      Rp {{ number_format($item->harga, 0, ',', '.') }}
+                    @endif
+                  </td>
+                  <td>
+                    @if ($item->harga_diskon != NULL)
+                      Rp {{ number_format($item->harga_diskon, 0, ',', '.') }}
+                    @else
+                      <small><i><b>Belum ada diskon</b></i></small>
+                    @endif
+                  </td>
                   <td>{{ $item->stok }}</td>
                   <td>{{ $item->keseluruhan }}</td>
                   <td>{{ $item->beranda == 1 ? 'Ya' : '' }}</td>
