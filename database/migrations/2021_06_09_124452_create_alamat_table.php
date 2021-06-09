@@ -16,6 +16,7 @@ class CreateAlamatTable extends Migration
         Schema::create('alamat', function (Blueprint $table) {
             $table->id();
             $table->foreignId('id_user');
+            $table->string('nama_penerima');
             $table->string('no_telp');
             $table->string('kota');
             $table->string('kecamatan');
