@@ -53,7 +53,7 @@
                 <div class="products">
                   <img src="{{ url('frontend/images/sofa1.jpg') }}" class="rounded float-left mr-4">
                   <div class="container">
-                    <h1><a href="{{ Route('detail') }}">Sofa Mantap 1</a></h1>
+                    <h1><a href="{{ Route('beranda') }}">Sofa Mantap 1</a></h1>
                     <h3 class="text-secondary">2 Barang</h3>
                     <h2>Rp 10.000.000</h2>
                   </div>
@@ -62,7 +62,7 @@
                 <div class="products">
                   <img src="{{ url('frontend/images/sofa2.jpg') }}" class="rounded float-left mr-4">
                   <div class="container">
-                    <h1><a href="{{ Route('detail') }}">Sofa Mantap 2</a></h1>
+                    <h1><a href="{{ Route('beranda') }}">Sofa Mantap 2</a></h1>
                     <h3 class="text-secondary">1 Barang</h3>
                     <h2>Rp 12.000.000</h2>
                   </div>
@@ -71,7 +71,7 @@
                 <div class="products">
                   <img src="{{ url('frontend/images/sofa3.jpg') }}" class="rounded float-left mr-4">
                   <div class="container">
-                    <h1><a href="{{ Route('detail') }}">Sofa Mantap 3</a></h1>
+                    <h1><a href="{{ Route('beranda') }}">Sofa Mantap 3</a></h1>
                     <h3 class="text-secondary">1 Barang</h3>
                     <h2>Rp 8.000.000</h2>
                   </div>
