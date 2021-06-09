@@ -45,7 +45,11 @@
                   <td>{{ $item->nama_produk }}</td>
                   <td>
                     @if ($item->harga_diskon != NULL)
-                      <strike>Rp {{ number_format($item->harga, 0, ',', '.') }}</strike>
+                      <strike class="text-danger">
+                        <span class="text-dark">
+                          Rp {{ number_format($item->harga, 0, ',', '.') }}
+                        </span>
+                      </strike>
                     @else
                       Rp {{ number_format($item->harga, 0, ',', '.') }}
                     @endif
