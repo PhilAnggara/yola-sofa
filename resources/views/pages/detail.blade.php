@@ -86,7 +86,7 @@
             <h3 class="">Varian Warna</h3>
             @foreach ($item->warna as $warna)
               <p class="mb-1 align-top">
-                <i class="fas fa-circle fa-lg mr-2" style="color: {{ $warna->kode_warna }};"></i> 
+                <i class="fas fa-circle fa-lg mr-2 text-shadow" style="color: {{ $warna->kode_warna }};"></i> 
                 {{ $warna->nama_warna }}
               </p>
             @endforeach
@@ -138,7 +138,9 @@
 
 @push('addon-style')
   <style>
-    
+    .text-shadow {
+      text-shadow: 0px 0px 1px black;
+    }
   </style>
 @endpush
 

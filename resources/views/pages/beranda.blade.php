@@ -35,7 +35,7 @@
               </p>
               <div class="variant">
                 @foreach ($item->warna as $warna)
-                  <i class="fas fa-circle" style="color: {{ $warna->kode_warna }};"></i>
+                  <i class="fas fa-circle text-shadow" style="color: {{ $warna->kode_warna }};"></i>
                 @endforeach
               </div>
               <a href="{{ Route('detail', $item->slug) }}" class="stretched-link"></a>
@@ -67,7 +67,9 @@
 
 @push('addon-style')
   <style>
-    
+    .text-shadow {
+      text-shadow: 0px 0px 1px black;
+    }
   </style>
 @endpush
 

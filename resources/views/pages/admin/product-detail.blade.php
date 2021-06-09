@@ -66,7 +66,7 @@
             <div class="d-flex w-25">
               <div class="p-2">
                 <p class="text-dark mb-0">
-                  <i class="fas fa-circle" style="color: {{ $warna->kode_warna }};"></i> 
+                  <i class="fas fa-circle text-shadow" style="color: {{ $warna->kode_warna }};"></i> 
                   {{ $warna->nama_warna }}
                 </p>
               </div>
@@ -75,7 +75,7 @@
                   <form action="{{ Route('warna.destroy', $warna->id) }}" method="POST">
                     @method('delete')
                     @csrf
-                    <button class="btn btn-link btn-sm" style="color: {{ $warna->kode_warna }};">
+                    <button class="btn btn-link btn-sm text-shadow" style="color: {{ $warna->kode_warna }};">
                       Hapus
                     </button>
                   </form>
@@ -135,7 +135,9 @@
 
 @push('addon-style')
   <style>
-
+    .text-shadow {
+      text-shadow: 0px 0px 1px black;
+    }
   </style>
 @endpush
 
