@@ -29,30 +29,33 @@
             <h5 class="card-title price">
               Rp {{ number_format($item->harga_diskon == NULL ? $item->harga : $item->harga_diskon, 0, ',', '.') }}
             </h5>
-            <div class="d-flex">
-              <div class="quantity mb-4">
-                <div class="input-group">
-                  <span class="input-group-btn">
-                    <button type="button" class="btn btn-outline-secondary rounded-circle btn-sm mr-1 btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
-                      <i class="fas fa-minus"></i>
-                    </button>
-                  </span>
-                  <input type="text" name="quant[1]" class="form-control form-control-sm input-number text-center" value="1" min="1" max="{{ $item->stok }}">
-                  <span class="input-group-btn">
-                    <button type="button" class="btn btn-outline-secondary rounded-circle btn-sm ml-1 btn-number" data-type="plus" data-field="quant[1]">
-                      <i class="fas fa-plus"></i>
-                    </button>
-                  </span>
+
+            <form action="{{ route('add-to-cart') }}" method="post">
+              @csrf
+              <div class="d-flex">
+                <div class="quantity mb-4">
+                  <div class="input-group">
+                    <span class="input-group-btn">
+                      <button type="button" class="btn btn-outline-secondary rounded-circle btn-sm mr-1 btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
+                        <i class="fas fa-minus"></i>
+                      </button>
+                    </span>
+                    <input type="text" name="quant[1]" class="form-control form-control-sm input-number text-center" value="1" min="1" max="{{ $item->stok }}">
+                    <span class="input-group-btn">
+                      <button type="button" class="btn btn-outline-secondary rounded-circle btn-sm ml-1 btn-number" data-type="plus" data-field="quant[1]">
+                        <i class="fas fa-plus"></i>
+                      </button>
+                    </span>
+                  </div>
+                </div>
+                <div class="ml-3">
+                  <p>
+                    Stok
+                    <span class="font-weight-bold">{{ $item->stok }}</span>
+                  </p>
                 </div>
               </div>
-              <div class="ml-3">
-                <p>
-                  Stok
-                  <span class="font-weight-bold">{{ $item->stok }}</span>
-                </p>
-              </div>
-            </div>
-            <form>
+              <input type="hidden" name="id_produk" value="{{ $item->id }}">
               <div class="form-group">
                 <label for="exampleFormControlSelect1">Pilih Warna</label>
                 <select class="form-control" id="exampleFormControlSelect1" name="warna">
@@ -63,17 +66,18 @@
                   @endforeach
                 </select>
               </div>
+              @if (auth()->user() && auth()->user()->roles == 'USER')
+                <button type="submit" class="btn btn-primary btn-block font-weight-bold"><i class="fas fa-shopping-cart"></i>
+                  Tambah ke keranjang
+                </button>
+              @endif
+              @guest
+                <a href="{{ url('login') }}" class="btn btn-primary btn-block font-weight-bold">
+                  Masuk
+                </a>
+              @endguest
             </form>
-            @if (auth()->user() && auth()->user()->roles == 'USER')
-              <button class="btn btn-primary btn-block font-weight-bold"><i class="fas fa-shopping-cart"></i>
-                Tambah ke keranjang
-              </button>
-            @endif
-            @guest
-              <a href="{{ url('login') }}" class="btn btn-primary btn-block font-weight-bold">
-                Masuk
-              </a>
-            @endguest
+
           </div>
         </div>
       </div>

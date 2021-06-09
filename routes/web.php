@@ -19,6 +19,9 @@ Route::get('produk', 'MainController@listOfProducts')
   ->name('products');
 Route::get('produk/{slug}', 'MainController@productDetail')
   ->name('detail');
+  
+Route::post('tambahkan-ke-keranjang', 'MainController@addToCart')
+  ->name('add-to-cart');
 Route::get('keranjang', 'MainController@cart')
   ->name('cart');
 Route::get('checkout', 'MainController@checkout')

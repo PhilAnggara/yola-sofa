@@ -24,7 +24,8 @@ class TransaksiRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'id_produk' => 'required|integer',
+            'warna' => 'required|max:255'
         ];
     }
 }

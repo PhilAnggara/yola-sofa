@@ -30,8 +30,8 @@
                   <td>{{ $item->nomor_transaksi }}</td>
                   <td>{{ $item->user->name }}</td>
                   <td>{{ Carbon\Carbon::parse($item->created_at)->isoFormat('D MMMM YYYY') }}</td>
-                  <td>{{ $item->detail->sum('jumlah_pesanan') }}</td>
-                  <td>{{ $item->total_harga }}</td>
+                  <td>{{ $item->transaksiDetail->sum('jumlah_pesanan') }}</td>
+                  <td>Rp {{ number_format($item->total_harga, 0, ',', '.') }}</td>
                   <td>{{ $item->status }}</td>
                   <td>
                     <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#detailTransaksiModal-{{ $item->id }}">

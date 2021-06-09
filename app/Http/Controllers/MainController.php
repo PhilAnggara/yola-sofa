@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\TransaksiRequest;
 use App\Models\Produk;
+use App\Models\Transaksi;
+use App\Models\TransaksiDetail;
+use Auth;
 
 class MainController extends Controller
 {
@@ -27,14 +31,66 @@ class MainController extends Controller
         ]);
     }
     
+    public function addToCart(TransaksiRequest $request)
+    {
+        // Tangkap produk berdasarkan id dari request
+        $produk = Produk::where('id', $request->id_produk)->firstOrFail();
+
+        $data = $request->all();
+        $data['id_user'] = Auth::user()->id;
+        $data['nomor_transaksi'] = 'TR'. now()->isoFormat('DDMMYYHHmm').'U' .Auth::user()->id;
+        $data['status'] = 'onCart';
+        $data['jumlah_pesanan'] = $request->quant['1'];
+
+        // Cek apakah produk mempunyai harga diskon
+        if ($produk->harga_diskon == NULL)
+        {
+            $data['total'] = $produk->harga * $data['jumlah_pesanan'];
+        }
+        else
+        {
+            $data['total'] = $produk->harga_diskon * $data['jumlah_pesanan'];
+        }
+
+        $transaksi = Transaksi::where('id_user', Auth::user()->id)
+                            ->where('status', 'onCart')->first();
+        // Cek apakah user punya pesanan di keranjang
+        if ($transaksi == NULL)
+        {
+            $data['total_harga'] = $data['total'];
+            $newTran = Transaksi::create($data);
+            $data['id_transaksi'] = $newTran->id;
+            TransaksiDetail::create($data);
+        }
+        else
+        {
+            $data['total_harga'] = $data['total'] + $transaksi['total_harga'];
+            $transaksi->update($data);
+
+            $data['id_transaksi'] = $transaksi->id;
+            TransaksiDetail::create($data);
+        }
+
+        return redirect()->route('products');
+    }
+    
     public function cart()
     {
-        return view('pages.keranjang');
+        $items = Transaksi::where('id_user', Auth::user()->id)
+                        ->where('status', 'onCart')->get();
+        return view('pages.keranjang', [
+            'items' => $items
+        ]);
     }
     
     public function checkout()
     {
-        return view('pages.checkout');
+        $items = Transaksi::where('id_user', Auth::user()->id)
+                        ->where('status', 'onCart')->get();
+
+        return view('pages.checkout', [
+            'items' => $items
+        ]);
     }
     
     public function success()
@@ -44,11 +100,21 @@ class MainController extends Controller
     
     public function transaction()
     {
-        return view('pages.transaksi');
+        $items = Transaksi::where('id_user', Auth::user()->id)
+                        ->where('status', '!=', 'onCart')->get();
+
+        return view('pages.transaksi', [
+            'items' => $items
+        ]);
     }
     
     public function transactionDetail()
     {
-        return view('pages.detail-transaksi');
+        $items = Transaksi::where('id_user', Auth::user()->id)
+                        ->where('status', '!=', 'onCart')->get();
+
+        return view('pages.detail-transaksi', [
+            'items' => $items
+        ]);
     }
 }
