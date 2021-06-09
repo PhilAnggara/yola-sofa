@@ -46,22 +46,28 @@
                   <td>
                     @if ($item->harga_diskon != NULL)
                       <strike class="text-danger">
-                        <span class="text-dark">
+                        <span class="text-secondary">
                           Rp {{ number_format($item->harga, 0, ',', '.') }}
                         </span>
                       </strike>
                     @else
-                      Rp {{ number_format($item->harga, 0, ',', '.') }}
+                      <span class="font-weight-bold">Rp {{ number_format($item->harga, 0, ',', '.') }}</span>
                     @endif
                   </td>
                   <td>
                     @if ($item->harga_diskon != NULL)
-                      Rp {{ number_format($item->harga_diskon, 0, ',', '.') }}
+                      <span class="font-weight-bold">Rp {{ number_format($item->harga_diskon, 0, ',', '.') }}</span>
                     @else
                       <small><i><b>Belum ada diskon</b></i></small>
                     @endif
                   </td>
-                  <td>{{ $item->stok }}</td>
+                  <td>
+                    @if ($item->stok != 0)
+                      {{ $item->stok }}
+                    @else
+                      <small><i><b>Kosong</b></i></small>
+                    @endif
+                  </td>
                   <td>{{ $item->keseluruhan }}</td>
                   <td>{{ $item->beranda == 1 ? 'Ya' : '' }}</td>
                   <td>

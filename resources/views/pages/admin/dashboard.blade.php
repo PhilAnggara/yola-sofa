@@ -16,7 +16,7 @@
           <div class="row no-gutters align-items-center">
             <div class="col mr-2">
               <div class="text-dark mb-1">Produk Siap Jual</div>
-              <div class="h5 mb-0 font-weight-bold text-gray-800">1</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $ready }}</div>
             </div>
             <div class="col-auto">
               <i class="fas fa-check-square text-prim fa-2x"></i>
@@ -32,7 +32,7 @@
           <div class="row no-gutters align-items-center">
             <div class="col mr-2">
               <div class="text-dark mb-1">Menunggu Persetujuan</div>
-              <div class="h5 mb-0 font-weight-bold text-gray-800">1</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $pending }}</div>
             </div>
             <div class="col-auto">
               <i class="fas fa-spinner text-prim fa-2x"></i>
@@ -48,7 +48,7 @@
           <div class="row no-gutters align-items-center">
             <div class="col mr-2">
               <div class="text-dark mb-1">Terjual Bulan Ini</div>
-              <div class="h5 mb-0 font-weight-bold text-gray-800">1</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $terjual }}</div>
             </div>
             <div class="col-auto">
               <i class="fas fa-truck text-prim fa-2x"></i>
@@ -64,7 +64,7 @@
           <div class="row no-gutters align-items-center">
             <div class="col mr-2">
               <div class="text-dark mb-1">Pemasukan Bulan Ini</div>
-              <div class="h5 mb-0 font-weight-bold text-gray-800">1</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $pemasukan }}</div>
             </div>
             <div class="col-auto">
               <i class="fas fa-cash-register text-prim fa-2x"></i>

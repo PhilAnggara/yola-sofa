@@ -12,7 +12,7 @@
 
   <li class="nav-item {{ Request::is('admin') ? 'active' : '' }}">
     <a class="nav-link" href="{{ Route('admin') }}">
-      <i class="fas fa-fw fa-home"></i>
+      <i class="fas fa-fw fa-chart-bar"></i>
       <span>Beranda</span>
     </a>
   </li>
@@ -23,7 +23,7 @@
     </a>
   </li>
   <li class="nav-item {{ Request::is('admin/transaksi*') ? 'active' : '' }}">
-    <a class="nav-link" href="{{ Route('admin') }}">
+    <a class="nav-link" href="{{ Route('transaksi.index') }}">
       <i class="fas fa-fw fa-credit-card"></i>
       <span>Transaksi</span>
     </a>

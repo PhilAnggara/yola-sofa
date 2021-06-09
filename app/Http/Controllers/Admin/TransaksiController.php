@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Transaksi;
 use Illuminate\Http\Request;
 
 class TransaksiController extends Controller
@@ -14,7 +15,9 @@ class TransaksiController extends Controller
      */
     public function index()
     {
-        //
+        $items = Transaksi::all()->sortByDesc('id');
+
+        return view('pages.admin.transactions', compact('items'));
     }
 
     /**

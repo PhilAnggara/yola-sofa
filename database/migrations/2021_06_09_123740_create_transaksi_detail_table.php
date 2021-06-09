@@ -17,6 +17,7 @@ class CreateTransaksiDetailTable extends Migration
             $table->id();
             $table->foreignId('id_transaksi');
             $table->foreignId('id_produk');
+            $table->integer('warna');
             $table->integer('jumlah_pesanan');
             $table->integer('total');
             $table->timestamps();
