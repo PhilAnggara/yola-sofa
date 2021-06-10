@@ -8,6 +8,7 @@ use App\Models\Produk;
 use App\Models\Transaksi;
 use App\Models\TransaksiDetail;
 use Auth;
+Use Alert;
 
 class MainController extends Controller
 {
@@ -70,7 +71,7 @@ class MainController extends Controller
             TransaksiDetail::create($data);
         }
 
-        return redirect()->route('products');
+        return redirect()->route('products')->with('toast_success', 'Ditambahkan ke Keranjang!');
     }
     
     public function cart()
