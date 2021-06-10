@@ -32,7 +32,11 @@
                   <td>{{ Carbon\Carbon::parse($item->created_at)->isoFormat('D MMMM YYYY') }}</td>
                   <td>{{ $item->transaksiDetail->sum('jumlah_pesanan') }}</td>
                   <td>Rp {{ number_format($item->total_harga, 0, ',', '.') }}</td>
-                  <td>{{ $item->status }}</td>
+                  <td>
+                    <button type="button" class="btn btn-outline-info {{ $item->status }} btn-sm text-uppercase" data-toggle="modal" data-target="#ubahStatusModal-{{ $item->id }}">
+                      {{ $item->status }}
+                    </button>
+                  </td>
                   <td>
                     <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#detailTransaksiModal-{{ $item->id }}">
                       <i class="far fa-eye"></i>
@@ -57,12 +61,47 @@
 
 </div>
 
-@include('includes.admin.products-modal')
+@include('includes.admin.transactions-modal')
 @endsection
 
 @push('addon-style')
   <style>
-
+    .Pending {
+      border: 1px solid  #acb624;
+      color: #acb624;
+    }
+    .Pending:hover {
+      border: 1px solid  #acb624;
+      background-color: #acb624;
+      color: white;
+    }
+    .Diproses {
+      border: 1px solid  #36a53b;
+      color: #36a53b;
+    }
+    .Diproses:hover {
+      border: 1px solid  #36a53b;
+      background-color: #36a53b;
+      color: white;
+    }
+    .Dikirim {
+      border: 1px solid  #365da5;
+      color: #365da5;
+    }
+    .Dikirim:hover {
+      border: 1px solid  #365da5;
+      background-color: #365da5;
+      color: white;
+    }
+    .Selesai {
+      border: 1px solid  #424242;
+      color: #424242;
+    }
+    .Selesai:hover {
+      border: 1px solid  #424242;
+      background-color: #424242;
+      color: white;
+    }
   </style>
 @endpush
 

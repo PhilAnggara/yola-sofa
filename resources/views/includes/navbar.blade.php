@@ -16,6 +16,15 @@
         <a class="nav-link" href="{{ Route('cart') }}">
           <i class="fas fa-shopping-cart fa-lg"></i>
           <span class="d-sm-none nav-hiden-text">Keranjang Saya</span>
+
+          @php
+              $cartCounter = App\Models\Transaksi::where('id_user', auth()->user()->id)->where ('status', 'onCart')->first();
+          @endphp
+          @if ($cartCounter != NULL)
+            <span class="badge badge-pill badge-danger">
+              {{ $cartCounter->transaksiDetail->count() }}
+            </span>
+          @endif
         </a>
       @endif
       <span class="vertical-devider"></span>

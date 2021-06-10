@@ -18,6 +18,7 @@ class Transaksi extends Model
         'nomor_transaksi',
         'status',
         'total_harga',
+        'ongkir',
         'metode_pembayaran',
         'gambar',
         'nama_penerima',

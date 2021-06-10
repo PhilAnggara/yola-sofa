@@ -40,7 +40,6 @@ class MainController extends Controller
         $data['id_user'] = Auth::user()->id;
         $data['nomor_transaksi'] = 'TR'. now()->isoFormat('DDMMYYHHmm').'U' .Auth::user()->id;
         $data['status'] = 'onCart';
-        $data['jumlah_pesanan'] = $request->quant['1'];
 
         // Cek apakah produk mempunyai harga diskon
         if ($produk->harga_diskon == NULL)
@@ -76,20 +75,20 @@ class MainController extends Controller
     
     public function cart()
     {
-        $items = Transaksi::where('id_user', Auth::user()->id)
-                        ->where('status', 'onCart')->get();
+        $item = Transaksi::where('id_user', Auth::user()->id)
+                        ->where('status', 'onCart')->first();
         return view('pages.keranjang', [
-            'items' => $items
+            'item' => $item
         ]);
     }
     
     public function checkout()
     {
-        $items = Transaksi::where('id_user', Auth::user()->id)
-                        ->where('status', 'onCart')->get();
+        $item = Transaksi::where('id_user', Auth::user()->id)
+                        ->where('status', 'onCart')->first();
 
         return view('pages.checkout', [
-            'items' => $items
+            'item' => $item
         ]);
     }
     

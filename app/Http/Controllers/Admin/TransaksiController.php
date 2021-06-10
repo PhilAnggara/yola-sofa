@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Transaksi;
+use App\Models\Produk;
 use Illuminate\Http\Request;
 
 class TransaksiController extends Controller
@@ -16,8 +17,9 @@ class TransaksiController extends Controller
     public function index()
     {
         $items = Transaksi::all()->sortByDesc('id');
+        $produk = Produk::all();
 
-        return view('pages.admin.transactions', compact('items'));
+        return view('pages.admin.transactions', compact('items', 'produk'));
     }
 
     /**
@@ -72,7 +74,12 @@ class TransaksiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+
+        $item = Transaksi::findOrFail($id);
+        $item->update($data);
+        
+        return redirect()->back();
     }
 
     /**
