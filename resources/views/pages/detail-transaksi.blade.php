@@ -18,12 +18,12 @@
           <div class="card-body">
             <div class="row">
               <div class="col-6">
-                <h5 class="card-title mb-3 font-weight-bold">Transaksi #1000347839247</h5>
+                <h5 class="card-title mb-3 font-weight-bold">Transaksi #{{ $item->nomor_transaksi }}</h5>
               </div>
               <div class="col-6 text-right">
-                <small>10 Mei 2021</small>
+                <small>{{ Carbon\Carbon::parse($item->created_at)->isoFormat('D MMMM YYYY') }}</small>
                 <br>
-                <span class="bg-tertunda">Tertunda</span>
+                <span class="{{ $item->status }}">{{ $item->status }}</span>
               </div>
             </div>
             <hr>
@@ -32,12 +32,12 @@
                 <p class="text-blue font-weight-bold">DIKIRIM KE</p>
               </div>
               <div class="col-sm-8">
-                <p class="font-weight-bold">Tommy Ramba</p>
-                <p>085155117682</p>
-                <a href="https://goo.gl/maps/ACLyGfvmzRTSxNh66" target="_blank">
-                  https://goo.gl/maps/ACLyGfvmzRTSxNh66
+                <p class="font-weight-bold">{{ $item->nama_penerima }}</p>
+                <p>{{ $item->no_telp }}</p>
+                <a href="{{ $item->detail }}" target="_blank">
+                  {{ $item->detail }}
                 </a>
-                <p>Kecamatan Dumoga, Bolaang Mongondow</p>
+                <p>{{ $item->kota }}, Kec. {{ $item->kecamatan }}</p>
               </div>
             </div>
             <div class="row">
@@ -45,50 +45,47 @@
                 <p class="text-blue font-weight-bold mt-3 mt-sm-0">METODE PEMBAYARAN</p>
               </div>
               <div class="col-sm-8">
-                <p class="font-weight-bold">Transfer</p>
+                <p class="font-weight-bold">{{ $item->metode_pembayaran }}</p>
               </div>
             </div>
             <hr>
             <div class="row">
               <div class="col-sm-8">
-                <div class="products">
-                  <img src="{{ url('frontend/images/sofa1.jpg') }}" class="rounded float-left mr-4">
-                  <div class="container">
-                    <h1><a href="{{ Route('beranda') }}">Sofa Mantap 1</a></h1>
-                    <h3 class="text-secondary">2 Barang</h3>
-                    <h2>Rp 10.000.000</h2>
+                @foreach ($details as $detail)
+                  <div class="products">
+                    <img src="{{ Storage::url($detail->produk->gambar->first()->gambar) }}" class="rounded float-left mr-4">
+                    <div class="container">
+                      <h1>
+                        <a href="{{ Route('detail', $detail->produk->slug) }}">
+                          {{ $detail->produk->nama_produk }}
+                        </a>
+                      </h1>
+                      <h3 class="text-secondary">{{ $detail->jumlah_pesanan }} Barang</h3>
+                      <h2>
+                        Rp {{ number_format($detail->produk->harga_diskon == NULL ? $detail->produk->harga : $detail->produk->harga_diskon, 0, ',', '.') }}
+                      </h2>
+                    </div>
+                    <hr>
                   </div>
-                  <hr>
-                </div>
-                <div class="products">
-                  <img src="{{ url('frontend/images/sofa2.jpg') }}" class="rounded float-left mr-4">
-                  <div class="container">
-                    <h1><a href="{{ Route('beranda') }}">Sofa Mantap 2</a></h1>
-                    <h3 class="text-secondary">1 Barang</h3>
-                    <h2>Rp 12.000.000</h2>
-                  </div>
-                  <hr>
-                </div>
-                <div class="products">
-                  <img src="{{ url('frontend/images/sofa3.jpg') }}" class="rounded float-left mr-4">
-                  <div class="container">
-                    <h1><a href="{{ Route('beranda') }}">Sofa Mantap 3</a></h1>
-                    <h3 class="text-secondary">1 Barang</h3>
-                    <h2>Rp 8.000.000</h2>
-                  </div>
-                  <hr>
-                </div>
+                  {{-- {{ $detail->produk->gambar->first()->gambar }} --}}
+                @endforeach
               </div>
               <div class="col-sm-4">
                 <div class="card shadow-sm">
                   <div class="card-body subtotal">
                     <div class="row">
                       <div class="col-6"><p>Subtotal</p></div>
-                      <div class="col-6 text-right sub-bold"><p>Rp 40.000.000</p></div>
+                      <div class="col-6 text-right sub-bold"><p>
+                        Rp {{ number_format($item->transaksiDetail->sum('total'), 0, ',', '.') }}
+                      </p></div>
                       <div class="col-6"><p>Pengiriman</p></div>
-                      <div class="col-6 text-right sub-bold"><p>Rp 100.000</p></div>
+                      <div class="col-6 text-right sub-bold"><p>
+                        Rp {{ number_format($item->ongkir, 0, ',', '.') }}
+                      </p></div>
                       <div class="col-6"><h4>Total</h4></div>
-                      <div class="col-6 text-right sub-bold"><h4>Rp 40.100.000</h4></div>
+                      <div class="col-6 text-right sub-bold"><h4>
+                        Rp {{ number_format($item->total_harga, 0, ',', '.') }}
+                      </h4></div>
                     </div>
                     <button class="btn btn-block btn-danger mt-2">Batalkan Pesanan</button>
                   </div>

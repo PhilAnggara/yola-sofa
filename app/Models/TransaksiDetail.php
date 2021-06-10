@@ -30,6 +30,6 @@ class TransaksiDetail extends Model
     }
 
     public function produk(){
-        return $this->hasOne(Produk::class, 'id_produk', 'id');
+        return $this->belongsTo(Produk::class, 'id_produk', 'id');
     }
 }

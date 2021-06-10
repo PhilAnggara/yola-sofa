@@ -67,30 +67,30 @@
 @push('addon-style')
   <style>
     .Pending {
-      border: 1px solid  #acb624;
-      color: #acb624;
+      border: 1px solid  #ffc107;
+      color: #ffc107;
     }
     .Pending:hover {
-      border: 1px solid  #acb624;
-      background-color: #acb624;
+      border: 1px solid  #ffc107;
+      background-color: #ffc107;
       color: white;
     }
     .Diproses {
-      border: 1px solid  #36a53b;
-      color: #36a53b;
+      border: 1px solid  #28a745;
+      color: #28a745;
     }
     .Diproses:hover {
-      border: 1px solid  #36a53b;
-      background-color: #36a53b;
+      border: 1px solid  #28a745;
+      background-color: #28a745;
       color: white;
     }
     .Dikirim {
-      border: 1px solid  #365da5;
-      color: #365da5;
+      border: 1px solid  #17a2b8;
+      color: #17a2b8;
     }
     .Dikirim:hover {
-      border: 1px solid  #365da5;
-      background-color: #365da5;
+      border: 1px solid  #17a2b8;
+      background-color: #17a2b8;
       color: white;
     }
     .Selesai {
@@ -100,6 +100,15 @@
     .Selesai:hover {
       border: 1px solid  #424242;
       background-color: #424242;
+      color: white;
+    }
+    .Dibatalkan {
+      border: 1px solid  #dc3545;
+      color: #dc3545;
+    }
+    .Dibatalkan:hover {
+      border: 1px solid  #dc3545;
+      background-color: #dc3545;
       color: white;
     }
   </style>

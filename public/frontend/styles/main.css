@@ -21,20 +21,24 @@ body {
   color: #1859b9;
 }
 
-.bg-tertunda {
+.Pending {
   background-color: #ffc107;
 }
 
-.bg-dibuat {
-  background-color: #6c757d;
+.Diproses {
+  background-color: #28a745;
 }
 
-.bg-dikirim {
+.Dikirim {
   background-color: #17a2b8;
 }
 
-.bg-sukses {
-  background-color: #28a745;
+.Selesai {
+  background-color: #6c757d;
+}
+
+.Dibatalkan {
+  background-color: #dc3545;
 }
 
 nav .navbar-brand {

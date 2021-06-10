@@ -136,19 +136,25 @@ class MainController extends Controller
     {
         $items = Transaksi::where('id_user', Auth::user()->id)
                         ->where('status', '!=', 'onCart')->get();
+        $product = Produk::all();
 
         return view('pages.transaksi', [
-            'items' => $items
+            'items' => $items,
+            'product' => $product
         ]);
     }
     
-    public function transactionDetail()
+    public function transactionDetail($no_tran)
     {
-        $items = Transaksi::where('id_user', Auth::user()->id)
-                        ->where('status', '!=', 'onCart')->get();
+        $item = Transaksi::where('id_user', Auth::user()->id)
+                        ->where('nomor_transaksi', $no_tran)->first();
+        $details = TransaksiDetail::where('id_transaksi', $item->id)->get();
+        $products = Produk::all();
 
         return view('pages.detail-transaksi', [
-            'items' => $items
+            'item' => $item,
+            'products' => $products,
+            'details' => $details,
         ]);
     }
 }

@@ -35,7 +35,7 @@ Route::get('sukses', 'MainController@success')
   ->name('success');
 Route::get('transaksi', 'MainController@transaction')
   ->name('transaction');
-Route::get('transaksi/nomor-transaksi', 'MainController@transactionDetail')
+Route::get('transaksi/{no_tran}', 'MainController@transactionDetail')
   ->name('transaction-detail');
 
 Route::prefix('admin')
