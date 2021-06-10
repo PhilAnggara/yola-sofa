@@ -154,7 +154,7 @@
           <tbody>
             @foreach ($item->transaksiDetail as $detail)
               <tr>
-                <td>{{ $produk->where('id', $detail->id_produk)->first()->nama_produk }}</td>
+                <td>{{ $produk->find($detail->id_produk)->nama_produk }}</td>
                 <td>{{ $detail->jumlah_pesanan }}</td>
                 <td>{{ $detail->warna }}</td>
                 <td>Rp {{ number_format($detail->total, 0, ',', '.') }}</td>
@@ -173,9 +173,11 @@
           </tfoot>
         </table>
 
-        @if ($item->metode_pembayaran == 'transfer')
+        @if ($item->metode_pembayaran == 'Transfer')
           @if ($item->gambar != NULL)
-            <img src="{{ Storage::url($item->gambar) }}" class="img-fluid rounded-lg shadow-sm">
+            <div class="d-flex justify-content-center">
+              <img src="{{ Storage::url($item->gambar) }}" class="img-fluid rounded-lg shadow-sm">
+            </div>
           @else
             <h5 class="text-center py-5 border font-italic shadow-sm">Bukti Pembayaran Tidak Dikirim</h5>
           @endif

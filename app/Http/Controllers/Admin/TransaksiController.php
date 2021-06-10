@@ -16,7 +16,7 @@ class TransaksiController extends Controller
      */
     public function index()
     {
-        $items = Transaksi::all()->sortByDesc('id');
+        $items = Transaksi::where('status', '!=', 'onCart')->get()->sortByDesc('id');
         $produk = Produk::all();
 
         return view('pages.admin.transactions', compact('items', 'produk'));

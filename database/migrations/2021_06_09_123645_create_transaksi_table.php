@@ -20,7 +20,7 @@ class CreateTransaksiTable extends Migration
             $table->string('status');
             $table->integer('total_harga');
             $table->integer('ongkir')->nullable();
-            $table->boolean('metode_pembayaran')->nullable();
+            $table->string('metode_pembayaran')->nullable();
             $table->text('gambar')->nullable();
             $table->string('nama_penerima')->nullable();
             $table->string('no_telp')->nullable();

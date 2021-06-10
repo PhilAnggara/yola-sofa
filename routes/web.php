@@ -22,10 +22,15 @@ Route::get('produk/{slug}', 'MainController@productDetail')
   
 Route::post('tambahkan-ke-keranjang', 'MainController@addToCart')
   ->name('add-to-cart');
+
 Route::get('keranjang', 'MainController@cart')
   ->name('cart');
 Route::get('checkout', 'MainController@checkout')
   ->name('checkout');
+
+Route::post('proses/{id}', 'MainController@process')
+  ->name('process');
+
 Route::get('sukses', 'MainController@success')
   ->name('success');
 Route::get('transaksi', 'MainController@transaction')

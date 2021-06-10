@@ -7,6 +7,7 @@ use App\Http\Requests\TransaksiRequest;
 use App\Models\Produk;
 use App\Models\Transaksi;
 use App\Models\TransaksiDetail;
+use App\Models\Alamat;
 use Auth;
 Use Alert;
 
@@ -78,8 +79,11 @@ class MainController extends Controller
     {
         $item = Transaksi::where('id_user', Auth::user()->id)
                         ->where('status', 'onCart')->first();
+        $product = Produk::all();
+        
         return view('pages.keranjang', [
-            'item' => $item
+            'item' => $item,
+            'product' => $product
         ]);
     }
     
@@ -87,10 +91,40 @@ class MainController extends Controller
     {
         $item = Transaksi::where('id_user', Auth::user()->id)
                         ->where('status', 'onCart')->first();
+        $product = Produk::all();
+        $alamat = Alamat::where('id_user', auth()->user()->id)->first();
 
         return view('pages.checkout', [
-            'item' => $item
+            'item' => $item,
+            'product' => $product,
+            'alamat' => $alamat
         ]);
+    }
+
+    public function process(Request $request, $id)
+    {
+        $transaksi = Transaksi::findOrFail($id);
+        $alamat = Alamat::where('id_user', auth()->user()->id)->first();
+
+        $data = $request->all();
+        $data['id_user'] = auth()->user()->id;
+        $data['status'] = 'Pending';
+        $data['ongkir'] = 100000;
+        $data['total_harga'] = $transaksi->transaksiDetail->sum('total') + $data['ongkir'];
+        $data['metode_pembayaran'] = $data['metode_pembayaran'];
+        $data['gambar'] = $request->file('gambar')->store(
+            'bukti-transfer/'.$transaksi->nomor_transaksi, 'public'
+        );
+
+        if ($alamat){
+            $alamat->update($data);
+        } else {
+            Alamat::create($data);
+        }
+
+        $transaksi->update($data);
+
+        return redirect()->route('success');
     }
     
     public function success()
