@@ -67,7 +67,6 @@
                     </div>
                     <hr>
                   </div>
-                  {{-- {{ $detail->produk->gambar->first()->gambar }} --}}
                 @endforeach
               </div>
               <div class="col-sm-4">
@@ -87,7 +86,18 @@
                         Rp {{ number_format($item->total_harga, 0, ',', '.') }}
                       </h4></div>
                     </div>
-                    <button class="btn btn-block btn-danger mt-2">Batalkan Pesanan</button>
+                    <form action="{{ Route('cancel', $item->id) }}" method="POST">
+                      @csrf
+                      @if ($item->status != 'Dibatalkan')
+                        <button type="submit" class="btn btn-block btn-danger mt-2">
+                          Batalkan Pesanan
+                        </button>
+                      @else
+                        <button class="btn btn-block btn-secondary mt-2" disabled>
+                          Pesanan Dibatalkan
+                        </button>
+                      @endif
+                    </form>
                   </div>
                 </div>
               </div>

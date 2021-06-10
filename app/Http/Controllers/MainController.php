@@ -157,4 +157,14 @@ class MainController extends Controller
             'details' => $details,
         ]);
     }
+
+    public function cancel(Request $request, $id)
+    {
+        $transaksi = transaksi::findOrFail($id);
+        $transaksi->status = 'Dibatalkan';
+
+        $transaksi->save();
+
+        return redirect()->back();
+    }
 }

@@ -20,6 +20,7 @@ Route::get('produk', 'MainController@listOfProducts')
 Route::get('produk/{slug}', 'MainController@productDetail')
   ->name('detail');
   
+// Tambah ke keranjang
 Route::post('tambahkan-ke-keranjang', 'MainController@addToCart')
   ->name('add-to-cart');
 
@@ -28,6 +29,7 @@ Route::get('keranjang', 'MainController@cart')
 Route::get('checkout', 'MainController@checkout')
   ->name('checkout');
 
+// Proses checkout
 Route::post('proses/{id}', 'MainController@process')
   ->name('process');
 
@@ -37,6 +39,10 @@ Route::get('transaksi', 'MainController@transaction')
   ->name('transaction');
 Route::get('transaksi/{no_tran}', 'MainController@transactionDetail')
   ->name('transaction-detail');
+
+// Batalkan pesanan
+Route::post('batalkan-pesanan/{id}', 'MainController@cancel')
+  ->name('cancel');
 
 Route::prefix('admin')
 ->namespace('Admin')

@@ -33,7 +33,7 @@
                   <td>{{ $item->transaksiDetail->sum('jumlah_pesanan') }}</td>
                   <td>Rp {{ number_format($item->total_harga, 0, ',', '.') }}</td>
                   <td>
-                    <button type="button" class="btn btn-outline-info {{ $item->status }} btn-sm text-uppercase" data-toggle="modal" data-target="#ubahStatusModal-{{ $item->id }}">
+                    <button type="button" class="btn btn-outline-info {{ $item->status }} btn-sm text-uppercase" data-toggle="modal" data-target="#ubahStatusModal-{{ $item->status != 'Dibatalkan' ? $item->id : ''}}">
                       {{ $item->status }}
                     </button>
                   </td>
