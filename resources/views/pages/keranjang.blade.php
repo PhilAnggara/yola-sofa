@@ -43,19 +43,9 @@
                   <a class="nav-link text-danger btn-lg" href="#"><i class="far fa-trash-alt"></i></a>
                   <span class="vertical-devider"></span>
                   <div class="quantity">
-                    <div class="input-group">
-                      <span class="input-group-btn">
-                        <button type="button" class="btn btn-outline-secondary rounded-circle btn-sm mr-1 btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
-                          <i class="fas fa-minus"></i>
-                        </button>
-                      </span>
-                      <input type="text" name="quant[1]" class="form-control form-control-sm input-number text-center" value="1" min="1" max="10">
-                      <span class="input-group-btn">
-                        <button type="button" class="btn btn-outline-secondary rounded-circle btn-sm ml-1 btn-number" data-type="plus" data-field="quant[1]">
-                          <i class="fas fa-plus"></i>
-                        </button>
-                      </span>
-                    </div>
+                    
+                    @livewire('product-qty-cart', ['item' => $detail])
+                    
                   </div>
                 </nav>
               </div>

@@ -4,12 +4,21 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 
-class ProductQty extends Component
+class ProductQtyCart extends Component
 {
-    public $qty = 1;
+    public $qty;
     public $maxqty = 5;
     public $min = true;
     public $max = false;
+
+    public function mount($item)
+    {
+        $this->qty = $item->jumlah_pesanan;
+
+        if ($this->qty > 1) {
+            $this->min = false;
+        }
+    }
 
     public function increment()
     {
@@ -34,6 +43,6 @@ class ProductQty extends Component
 
     public function render()
     {
-        return view('livewire.product-qty');
+        return view('livewire.product-qty-cart');
     }
 }
