@@ -74,7 +74,7 @@ class MainController extends Controller
         }
 
         $product_name = $produk->nama_produk;
-        return redirect()->route('products')->with('toast_success', '<b>'. $product_name.'</b>'. ' Ditambahkan ke Keranjang!');
+        return redirect()->route('products')->with('success', '<b>'. $product_name.'</b>'. ' Ditambahkan ke Keranjang!');
     }
     
     public function cart()
@@ -118,6 +118,10 @@ class MainController extends Controller
                         ->where('status', 'onCart')->first();
         $product = Produk::all();
         $alamat = Alamat::where('id_user', auth()->user()->id)->first();
+
+        // Bypass total harga transaksi (livewire bug)
+        $item->total_harga = $item->transaksiDetail->sum('total');
+        $item->save();
 
         return view('pages.checkout', [
             'item' => $item,

@@ -106,15 +106,6 @@
                   <td>:</td>
                   <td>{{ $item->kota }}</td>
                 </tr>
-                <tr>
-                  <th>Detail Alamat</th>
-                  <td>:</td>
-                  <td class="text-break">
-                    <a href="{{ $item->detail }}" target="_blank" class="text-secondary">
-                      {{ $item->detail }}
-                    </a>
-                  </td>
-                </tr>
               </tbody>
             </table>
           </div>
@@ -132,9 +123,13 @@
                   <td>{{ $item->kecamatan }}</td>
                 </tr>
                 <tr>
-                  <th>Ongkos Kirim</th>
+                  <th>Detail Alamat</th>
                   <td>:</td>
-                  <td>{{ $item->ongkir }}</td>
+                  <td class="text-break">
+                    <a href="{{ $item->detail }}" target="_blank" class="text-secondary">
+                      {{ $item->detail }}
+                    </a>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -165,6 +160,10 @@
             <tr>
               <th colspan="3">Subtotal</th>
               <th>Rp {{ number_format($item->transaksiDetail->sum('total'), 0, ',', '.') }}</th>
+            </tr>
+            <tr>
+              <th colspan="3">Ongkos Kirim</th>
+              <th>Rp {{ number_format($item->ongkir, 0, ',', '.') }}</th>
             </tr>
             <tr>
               <th colspan="3">Total</th>
