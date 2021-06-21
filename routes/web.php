@@ -23,6 +23,9 @@ Route::get('produk/{slug}', 'MainController@productDetail')
 // Tambah ke keranjang
 Route::post('tambahkan-ke-keranjang', 'MainController@addToCart')
   ->name('add-to-cart');
+// Hapus dari keranjang
+Route::get('hapus-dari-keranjang/{id}', 'MainController@removeFromCart')
+  ->name('remove-from-cart');
 
 Route::get('keranjang', 'MainController@cart')
   ->name('cart');

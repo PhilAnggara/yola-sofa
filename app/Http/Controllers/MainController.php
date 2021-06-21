@@ -43,7 +43,7 @@ class MainController extends Controller
         $data['nomor_transaksi'] = 'TR'. now()->isoFormat('DDMMYYHHmm').'U' .Auth::user()->id;
         $data['status'] = 'onCart';
 
-        // Cek apakah produk mempunyai harga diskon
+        // Cek apakah produk tidak mempunyai harga diskon
         if ($produk->harga_diskon == NULL)
         {
             $data['total'] = $produk->harga * $data['jumlah_pesanan'];
@@ -60,6 +60,7 @@ class MainController extends Controller
         {
             $data['total_harga'] = $data['total'];
             $newTran = Transaksi::create($data);
+
             $data['id_transaksi'] = $newTran->id;
             TransaksiDetail::create($data);
         }
@@ -72,7 +73,8 @@ class MainController extends Controller
             TransaksiDetail::create($data);
         }
 
-        return redirect()->route('products')->with('toast_success', 'Ditambahkan ke Keranjang!');
+        $product_name = $produk->nama_produk;
+        return redirect()->route('products')->with('toast_success', '<b>'. $product_name.'</b>'. ' Ditambahkan ke Keranjang!');
     }
     
     public function cart()
@@ -85,6 +87,29 @@ class MainController extends Controller
             'item' => $item,
             'product' => $product
         ]);
+    }
+    
+    public function removeFromCart($id)
+    {
+        $item = TransaksiDetail::find($id);
+        $item->delete();
+
+        $transaksi = Transaksi::find($item->id_transaksi);
+
+        // Cek apakah transaksi masih memiliki transaksi detail
+        if ($transaksi->transaksiDetail->count() == NULL)
+        {
+            $transaksi->delete();
+        }
+        else
+        {
+            $transaksi->total_harga = $transaksi->transaksiDetail->sum('total');
+            $transaksi->total_harga += $transaksi->ongkir;
+            $transaksi->save();
+        }
+
+        $nama_barang = $item->produk->nama_produk;
+        return redirect()->back()->with('toast_success', '<b>'. $nama_barang.'</b>'. ' Dihapus dari Keranjang!');
     }
     
     public function checkout()

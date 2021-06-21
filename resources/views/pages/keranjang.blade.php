@@ -40,7 +40,9 @@
               </div>
               <div class="card-body border-top">
                 <nav class="nav justify-content-end">
-                  <a class="nav-link text-danger btn-lg" href="#"><i class="far fa-trash-alt"></i></a>
+                  <a class="nav-link text-danger btn-lg" href="{{ route('remove-from-cart', $detail->id) }}">
+                    <i class="far fa-trash-alt"></i>
+                  </a>
                   <span class="vertical-devider"></span>
                   <div class="quantity">
                     
