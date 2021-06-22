@@ -141,9 +141,11 @@ class MainController extends Controller
         $data['ongkir'] = 100000;
         $data['total_harga'] = $transaksi->transaksiDetail->sum('total') + $data['ongkir'];
         $data['metode_pembayaran'] = $data['metode_pembayaran'];
-        $data['gambar'] = $request->file('gambar')->store(
-            'bukti-transfer/'.$transaksi->nomor_transaksi, 'public'
-        );
+        if ($request->file('gambar')) {
+            $data['gambar'] = $request->file('gambar')->store(
+                'bukti-transfer/'.$transaksi->nomor_transaksi, 'public'
+            );
+        }
 
         if ($alamat){
             $alamat->update($data);
@@ -164,7 +166,7 @@ class MainController extends Controller
     public function transaction()
     {
         $items = Transaksi::where('id_user', Auth::user()->id)
-                        ->where('status', '!=', 'onCart')->get();
+                        ->where('status', '!=', 'onCart')->get()->sortByDesc('id');
         $product = Produk::all();
 
         return view('pages.transaksi', [

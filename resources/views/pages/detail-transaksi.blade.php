@@ -81,17 +81,19 @@
                       <div class="col-6 text-right sub-bold"><p>
                         Rp {{ number_format($item->ongkir, 0, ',', '.') }}
                       </p></div>
-                      <div class="col-6"><h4>Total</h4></div>
-                      <div class="col-6 text-right sub-bold"><h4>
+                      <div class="col-4"><h4>Total</h4></div>
+                      <div class="col-8 text-right sub-bold"><h4>
                         Rp {{ number_format($item->total_harga, 0, ',', '.') }}
                       </h4></div>
                     </div>
                     <form action="{{ Route('cancel', $item->id) }}" method="POST">
                       @csrf
-                      @if ($item->status != 'Dibatalkan')
+                      @if ($item->status != 'Dibatalkan' && $item->status != 'Selesai')
                         <button type="submit" class="btn btn-block btn-danger mt-2">
                           Batalkan Pesanan
                         </button>
+                      @elseif ($item->status == 'Selesai')
+                        
                       @else
                         <button class="btn btn-block btn-secondary mt-2" disabled>
                           Pesanan Dibatalkan

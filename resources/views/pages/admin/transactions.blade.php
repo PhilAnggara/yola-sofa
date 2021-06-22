@@ -18,7 +18,8 @@
                 <th scope="col">Nomor Transaksi</th>
                 <th scope="col">Pembeli</th>
                 <th scope="col">Tanggal</th>
-                <th scope="col">Jumlah Barang</th>
+                <th scope="col">Metode Pembayaran</th>
+                {{-- <th scope="col">Jumlah Barang</th> --}}
                 <th scope="col">Total Harga</th>
                 <th scope="col">Status</th>
                 <th scope="col" width="110px">Aksi</th>
@@ -30,7 +31,8 @@
                   <td>{{ $item->nomor_transaksi }}</td>
                   <td>{{ $item->user->name }}</td>
                   <td>{{ Carbon\Carbon::parse($item->created_at)->isoFormat('D MMMM YYYY') }}</td>
-                  <td>{{ $item->transaksiDetail->sum('jumlah_pesanan') }}</td>
+                  <td>{{ $item->metode_pembayaran }}</td>
+                  {{-- <td>{{ $item->transaksiDetail->sum('jumlah_pesanan') }}</td> --}}
                   <td>Rp {{ number_format($item->total_harga, 0, ',', '.') }}</td>
                   <td>
                     <button type="button" class="btn btn-outline-info {{ $item->status }} btn-sm text-uppercase" data-toggle="modal" data-target="#ubahStatusModal-{{ $item->status != 'Dibatalkan' ? $item->id : ''}}">
